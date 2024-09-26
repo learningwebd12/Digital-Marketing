@@ -1,0 +1,403 @@
+@font-face {
+    font-family: heading;
+    src: url(/fonts/Unbounded-Bold-BF63e447c282748.ttf);
+}
+@font-face {
+    font-family: pasag;
+    src: url(/fonts/NeueMachina-Regular.otf);
+   
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+body{
+    background-color:#161616;
+   
+    background-repeat: no-repeat;
+    background-size: 100%;  
+    
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vw 3vw;
+    
+     
+}
+.header-btn{
+    outline: none;
+    border: none;
+    padding: 1.1vw 3vw;
+    background-color: #aaff00;
+    border-radius: 10vw;
+    cursor: pointer;
+    font-size: 1vw;
+    font-family: pasag;
+    color: #000000;
+    font-weight: 700;
+   
+}
+.logo{
+    font-family: pasag;
+    font-size: 1.2vw;
+    color: #aaff00;
+    font-weight: 700;
+    margin: 0 1vw;
+}
+
+.main-logo{
+    width: 100%;
+    height: 4vw;
+    border-radius: 10vw;
+}
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    margin:0 0.8vw;
+    font-family:pasag;
+    font-weight: 700;
+}
+.main{
+    width: 100%; 
+    
+}
+.sub-main{
+width: 100%;
+height: 90vh;
+display: flex;
+justify-content: space-between;
+align-content: stretch;
+align-items: start;
+padding: 5vw 3vw 0 3vw;
+
+}
+.left-part{
+    width: 40%;
+    padding-top:0.6vw ;
+}
+.home-h1{
+    font-family: bokis;
+    font-size: 8vw;
+    width: 90%;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+    line-height: 7.5vw;
+
+}
+
+.home-pasag{
+    font-family:poppins;
+    font-size: 1vw;
+    margin: 1vw 0;
+    color: #dad9d9;
+}
+
+.first-btn{
+    outline: none;
+    border: none;
+    padding: 1vw 3vw;
+    background-color: #aaff00;
+    border-radius: 10vw;
+    cursor: pointer;
+    font-size: 1vw;
+    font-family: pasag;
+    color: #000000;
+    font-weight: 700;
+    
+}
+
+.center-part{
+    width: 40%;
+   
+}
+
+.home-images{
+    width: 100%;
+}
+
+.right-parts{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-bottom: 1.5vw;
+   
+
+}
+.top{
+    padding: 1vw 0;
+    display: flex;
+    justify-content: start;
+    align-items:start;
+   
+}
+.top-p{
+    font-family: poppins;
+    font-size: 0.9vw;
+    width: 70%;
+    color: #ffffff;
+}
+.ri-arrow-right-up-line{
+    font-size: 1.7vw;
+    font-weight: 200;
+    color: #ffffff;
+}
+
+.center-p{
+    font-family: poppins;
+    font-size: 0.9vw;
+    color: #ffffff;
+}
+
+.end{
+  padding-bottom: 2vw;
+  font-family: poppins;
+}
+.end-p{
+    font-size: 0.9vw;
+    color: #ffffff;
+}
+
+
+/* about us css start here */
+
+.about-us-section{
+    width: 100%;
+    padding: 2vw 3vw;
+}
+.main-about-title{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+.about-title-h1{
+    font-family: heading;
+    font-size: 3vw;
+    color: antiquewhite;
+    width: 40%;
+}
+.two-box-about{
+    display: flex;
+}
+.two-number{
+    display: flex;
+    padding: 3vw 0;
+}
+.all-project-num{
+    padding: 1vw 0;
+}
+.all-project-num:nth-child(2){
+   
+    margin: 0 0 0 3vw;
+}
+.about-project-title{
+    font-family: heading;
+    font-size: 3vw;
+    color: #ffffff;
+}
+.about-project-pasag{
+    font-family: poppins;
+    color: #ffffff;
+}
+
+.about-description{
+    width: 50%;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    align-items: end;
+}
+.about-desciption-txt{
+    font-family: poppins;
+    width: 70%;
+    color: #ffffff;
+}
+
+
+.about-read-more{
+    color: #aaff00;
+    text-decoration: none;
+    font-size: 1vw;
+    font-weight: 700;
+}
+
+
+
+
+.animate {
+    font-size: 18vw;
+    line-height: 1;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+/* methodology css start here */
+
+.Methodology{
+    width: 100%;
+   height: 100vh;
+   padding: 3vw 3vw;
+}
+.two-methodology{
+    border-top:0.1vw solid #545454a7 ;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top:1vw;
+}
+.small-txt{
+    width: 50%;
+    display: flex;
+    justify-content: start;
+    align-items:center;
+}
+.inner-pasag-p{
+font-family: poppins;
+font-size: 1.2vw;
+border: 0.1vw solid #545454;
+border-radius: 10vw;
+padding:0.5vw 0.9vw;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+color: #ffffff;
+}
+.ri-arrow-right-line{
+    color: #ffffff;
+    font-size: 1.5vw;
+    border: 0.1vw solid #545454;
+    border-radius: 10vw;
+    padding: 0.5vw;
+    margin-left: 1vw;
+    transform:rotate(-35deg);
+}
+.inner-h2{
+    font-size: 3vw;
+    font-family: heading;
+    color: antiquewhite;
+}
+
+.side-txt{
+    width: 50%;
+}
+
+.four-box{
+    padding: 5vw 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    gap: 1.5vw;
+}
+.first-box{
+    background-color: #111111;
+    padding: 1vw 2vw;
+    width: 25%;
+    border-radius: 0.5vw;
+}
+figcaption{
+    font-size: 1.5vw;
+    font-family: heading;
+    color: antiquewhite;
+    margin: 1vw 0;
+}
+.all-list-items{
+    padding: 2vw 0;
+}
+.all-inner-list{
+    color: #ffffff;
+    font-family: poppins;
+    margin: 0.3vw 0;
+    font-size: 1vw;
+}
+.ri-presentation-line{
+    color: #aaff00;
+    font-size: 4.5vw;
+}
+
+
+
+/* 
+any-project-section */
+.any-project-section{
+    width: 100%;
+    height: 120vh;
+
+}
+.images-and-text{
+    width: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    height: 110vh;
+    background-image: url(/images/any-projects.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    filter: grayscale(1);
+}
+.images-and-text:hover{
+    filter: grayscale(0);
+}
+.images-and-text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, 
+                #000000f5 30.75%, 
+                rgba(0, 0, 0, 0.948) 72.14%, 
+                rgba(0, 0, 0, 0.815) 110.96%);
+    filter: grayscale(1);
+
+    opacity: 0.5; 
+}
+
+.all-text-and-btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+   
+}
+.any-project-h1{
+    font-size: 5vw;
+    font-family: heading;
+    width: 60%;
+    color: #aaff00;
+    filter: grayscale(0);
+    z-index: 1;
+   
+    
+}
+.project-btn{
+    padding: 1.5vw 3.5vw;
+    border: none;
+    outline: none;
+    font-size: 1.1vw;
+    font-family: poppins;
+    cursor: pointer;
+    margin: 1vw 0;
+    z-index: 1;
+    border-radius: 0.2vw;
+
+}

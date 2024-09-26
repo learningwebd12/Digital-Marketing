@@ -1,0 +1,34 @@
+<svg width="1800" height="1800" viewBox="0 0 1800 1800" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="900" cy="900" r="225" fill="url(#paint0_radial_291_661)" fill-opacity="0.01"/>
+<circle cx="900" cy="900" r="224.5" stroke="white" stroke-opacity="0.05"/>
+<circle cx="900" cy="905" r="300" fill="url(#paint1_radial_291_661)" fill-opacity="0.01"/>
+<circle cx="900" cy="905" r="299.5" stroke="white" stroke-opacity="0.05"/>
+<circle cx="900" cy="905" r="400" fill="url(#paint2_radial_291_661)" fill-opacity="0.01"/>
+<circle cx="900" cy="905" r="399.5" stroke="white" stroke-opacity="0.05"/>
+<circle cx="900" cy="905" r="600" fill="url(#paint3_radial_291_661)" fill-opacity="0.01"/>
+<circle cx="900" cy="905" r="599.5" stroke="white" stroke-opacity="0.05"/>
+<circle cx="900" cy="900" r="900" fill="url(#paint4_radial_291_661)" fill-opacity="0.01"/>
+<circle cx="900" cy="900" r="899.5" stroke="white" stroke-opacity="0.05"/>
+<defs>
+<radialGradient id="paint0_radial_291_661" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(900 900) rotate(90) scale(225)">
+<stop stop-color="white" stop-opacity="0"/>
+<stop offset="1" stop-color="white"/>
+</radialGradient>
+<radialGradient id="paint1_radial_291_661" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(900 905) rotate(90) scale(300)">
+<stop stop-color="white" stop-opacity="0"/>
+<stop offset="1" stop-color="white"/>
+</radialGradient>
+<radialGradient id="paint2_radial_291_661" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(900 905) rotate(90) scale(400)">
+<stop stop-color="white" stop-opacity="0"/>
+<stop offset="1" stop-color="white"/>
+</radialGradient>
+<radialGradient id="paint3_radial_291_661" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(900 905) rotate(90) scale(600)">
+<stop stop-color="white" stop-opacity="0"/>
+<stop offset="1" stop-color="white"/>
+</radialGradient>
+<radialGradient id="paint4_radial_291_661" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(900 900) rotate(90) scale(900)">
+<stop stop-color="white" stop-opacity="0"/>
+<stop offset="1" stop-color="white"/>
+</radialGradient>
+</defs>
+</svg>

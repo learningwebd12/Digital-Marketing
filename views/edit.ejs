@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Team Member</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background-color: #222;
+            color: white;
+        }
+        input[type="submit"] {
+            background-color: #ffcc00;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #e6b800;
+        }
+        .logout {
+            float: right;
+            background-color: red;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <section class="edit-team">
+        <h2>Edit Team Member</h2>
+        <form action="/team/update/<%= member._id %>" method="post" enctype="multipart/form-data">
+            <label for="name">Name:</label>
+          <input type="text" id="name" name="name" value="<%= member.name %>" required><br><br>
+      
+          <label for="position">Position:</label>
+          <input type="text" id="position" name="position" value="<%= member.position %>" required><br><br>
+      
+          <label for="profilePic">Profile Picture:</label>
+          <input type="file" id="profilePic" name="profilePic" accept="image/*"><br><br>
+          <p>Current Profile Picture: <img src="<%= member.profilePic %>" alt="Profile Picture" style="width:100px;"></p>
+      
+          <label for="linkedin">LinkedIn URL:</label>
+          <input type="text" id="linkedin" name="linkedin" value="<%= member.linkedin %>"><br><br>
+      
+          <label for="instagram">Instagram URL:</label>
+          <input type="text" id="instagram" name="instagram" value="<%= member.instagram %>"><br><br>
+      
+          <button type="submit">Update Team Member</button>
+        </form>
+      </section>
+      
+    
+</body>
+</html>

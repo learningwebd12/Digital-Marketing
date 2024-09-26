@@ -1,0 +1,83 @@
+footer{
+    width: 100%;
+    padding: 1.5vw 3vw;
+}
+.all-footer-box{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 3vw;
+    
+}
+h4{
+    color: antiquewhite;
+    font-size: 1.2vw;
+    font-family: heading;
+    margin: 1vw 0;
+}
+.one-footer-box{
+    display: flex;
+    flex-direction:column ;
+    width: 100%;
+    
+}
+p{
+    color:#fff;
+    font-size:1vw;
+    margin: 0.3vw 0;
+    font-family:pasag;
+}
+a{
+    text-decoration: none;
+    font-family: pasag;
+    color: #fff;
+    margin: 0.3vw 0;
+}
+h3{
+    font-size: 3vw;
+    color: #fff;
+    font-family: heading;
+}
+.contact-us-footer{
+    color: #fff;
+    border-radius: 10vw;
+    border: 0.1vw solid #fff;
+    background-color: #aaff00;
+    color: #111;
+    font-size: 1vw;
+    padding: 1vw 3vw;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    font-weight: 700;
+    margin: 1vw 0;
+}
+
+.two-footer-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2vw 0;
+}
+
+.email-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1D1D1D;
+    width: 30%;
+}
+
+.footer-input{
+    padding: 1.5vw 2vw;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    font-family: pasag;
+    width: 100%;
+}
+
+.ri-send-plane-fill{
+    color: #ffffff;
+    font-size: 2vw;
+}

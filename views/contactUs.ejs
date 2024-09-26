@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="/stylesheet/contact.css">
+</head>
+<body>
+    <%- include('./partials/header') %>
+    <div class="main-contact">
+        <div class="main-contact-images">
+            <img src="../images/Contact_Features.webp" alt="" class="contact-us-picture">
+        </div>
+       
+        <div class="two-box-contact">
+            <h1>We’ve been waiting for you!</h1>
+            <p>Add the best talent on the market, an agile skilled management & seamlessinvolvement</p>
+        </div>
+    <form action="/contact" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea><br>
+
+        <button type="submit">Send</button>
+    </form>
+    </div>
+    <%- include('./partials/footer') %>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('./partials/header') %>
+    <main>
+        <h1><%= aboutData ? aboutData.title : 'About Us' %></h1>
+
+        <section>
+            <p><%= aboutData ? aboutData.description : 'No description available.' %></p>
+        </section>
+
+        <section class="bottom-section">
+            <div class="first-part-about">
+                <p class="inner-text-about">
+                    DESIGN AGENCY
+                </p>
+                <h1 class="inner-text-pasag">We make top creative solutions for brands</h1>
+                <button class="inner-about-btn">Our Pricing</button>
+            </div>
+        </section>
+    </main>
+    <%- include('./partials/footer') %>
+</body>
+</html>

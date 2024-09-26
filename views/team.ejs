@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Team Members</title>
+    <link rel="stylesheet" href="stylesheet/team.css">
+</head>
+<body>
+    <%- include('./partials/header') %>
+    <div class="main-team-images">
+        <div class="all-team-text">
+            <h1 class="ourteam">Our Team</h1>
+        <p class="meet-our-team-pasag">Meet our passionate and skilled team, dedicated to delivering exceptional results. With diverse expertise in digital marketing, design, and development, we collaborate to turn ideas into success</p>
+        </div>
+        <img src="./images/team.jpg" alt="" class="our-team-main-images">
+    </div>
+    <h1 class="meet-team-h1">MEET OUR TEAM</h1>
+    <div class="all-team-located">
+        <% teamMembers.forEach(member => { %>
+            <li class="main-content">
+                <img src="<%= member.profilePic %>" alt="<%= member.name %>" class="profile-pic">
+               <div class="name-and-info">
+                <h3 class="member-name"><%= member.name %></h3>
+                <p class="position"><%= member.position %></p>
+                <div class="both-social-media">
+                    <a href="<%= member.linkedin %>" target="_blank"  class="social-link">LinkedIn</a> |
+                <a href="<%= member.instagram %>" target="_blank" class="social-link">Instagram</a>
+                </div>
+               </div>
+            </li>
+        <% }); %>
+        </div>
+        <%- include('./partials/footer') %>
+</body>
+</html>
