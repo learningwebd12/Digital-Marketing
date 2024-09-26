@@ -29,3 +29,72 @@
     width: 30%;
     
 }
+.two-form-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    width: 100%;
+}
+.contact-h4{
+font-family: pasag;
+font-size: 2vw;
+width: 80%;
+color: #fff;
+}
+.right-contact-info{
+    width: 50%;
+}
+form{
+   
+    color: #fff;
+    width: 50%;
+}
+label{
+    color: #fff;
+    font-family: pasag;
+    font-size: 1vw;
+    
+}
+.input-text{
+    padding: 1.2vw 1vw;
+    border: 0.1vw solid #838383;
+    outline: none;
+    background-color: transparent;
+    color: #fff;
+    width: 100%;
+    margin: 0.8vw 0;
+    font-family: pasag;
+}
+input::placeholder{
+    color: #fff;
+}
+textarea::placeholder{
+    color: #fff;
+}
+.all-contact-pasag{
+    margin: 1vw 0;
+}
+textarea{
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+    height: 10vw;
+    color: #fff;
+    margin: 0.8vw 0;
+    padding: 1vw;
+    font-family: pasag;
+    border: 0.1vw solid #838383;
+}
+form button{
+    outline: none;
+    border: none;
+    padding: 1vw 5vw;
+    background-color: #aaff00;
+    border-radius: 10vw;
+    cursor: pointer;
+    font-size: 1vw;
+    font-family: pasag;
+    color: #000000;
+    font-weight: 700;
+    margin: 1vw 0;
+}

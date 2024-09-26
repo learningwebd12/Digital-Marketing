@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"/>
     <link rel="stylesheet" href="/stylesheet/contact.css">
+    
 </head>
 <body>
     <%- include('./partials/header') %>
@@ -17,18 +21,27 @@
             <h1>We’ve been waiting for you!</h1>
             <p>Add the best talent on the market, an agile skilled management & seamlessinvolvement</p>
         </div>
-    <form action="/contact" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br>
+    <div class="two-form-box">
+        <div class="right-contact-info">
+<h4 class="contact-h4">We want to hear from you. let’s us know how we can help!</h4>
+<p class="all-contact-pasag">+977-9864249902</p>
+<p class="all-contact-pasag">Bagbazar-28-Kathmandu</p>
+<p class="all-contact-pasag">info@marketingmandu.com</p>
+        </div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br>
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" required></textarea><br>
-
-        <button type="submit">Send</button>
-    </form>
+        <form action="/contact" method="POST">
+            <label for="name">Name:</label> <br>
+            <input class="input-text" type="text" id="name" name="name" placeholder="Enter Your Full Name" required><br>
+    
+            <label for="email">Email:</label> <br>
+            <input class="input-text" type="email" id="email" name="email" placeholder="Enter Your Email" required><br>
+    
+            <label for="message">Message:</label> <br>
+            <textarea id="message" name="message" required placeholder="Leave a message....."></textarea><br>
+    
+            <button type="submit">Send</button>
+        </form>
+    </div>
     </div>
     <%- include('./partials/footer') %>
 </body>
