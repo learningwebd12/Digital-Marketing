@@ -51,34 +51,38 @@ app.post("/adminDashboard/about", async (req, res, next) => {
   return res.redirect("/about?status=success");
 });
 
-app.get("/services", async function (req, res) {
+//services
+app.post("/services", async function (req, res) {
+  const { name, description } = req.body;
+
   try {
-    const aboutServices = await Services.findOne();
-    res.render("services", { aboutServices });
-  } catch (err) {
-    res.status(500).send("server error");
+    await Services.create({ name, description });
+    res.redirect("services?status=success");
+  } catch (error) {
+    res.status(500).send("Error occur" + error.message);
   }
 });
 
-app.post("/adminDashboard/services", function (req, res, next) {
-  const { name, description } = req.body;
-  Services.findOneAndUpdate(
-    {},
-    { name, description },
-    { new: true, upsert: true }
-  )
-    .then(function () {
-      res.redirect("/services?status=success");
-    })
-    .catch(next);
+app.get("/services", async function (req, res) {
+  try {
+    const aboutServices = await Services.find(); // Use find() to get all documents
+    res.render("services", { aboutServices: aboutServices || [] }); // Pass the array of services to the view
+  } catch (err) {
+    res.status(500).send("server error");
+  }
 });
 
 // Admin Dashboard
 app.get("/adminDashboard", async (req, res) => {
   const contacts = await Contact.find({}).exec();
   const allList = await TeamMember.find({}).exec();
+  const allServices = await Services.find({}).exec();
   // console.log(contacts);
-  res.render("adminDashboard", { contacts: contacts, allList: allList });
+  res.render("adminDashboard", {
+    contacts: contacts,
+    allList: allList,
+    allServices: allServices,
+  });
 });
 
 app.get("/addteam", function (req, res) {
@@ -156,12 +160,10 @@ app.post("/team/update/:id", upload.single("profilePic"), async (req, res) => {
   const { name, position, linkedin, instagram } = req.body;
 
   try {
-    // If a new profile picture is uploaded, update it, otherwise keep the old one
     const profilePic = req.file
       ? "/uploads/" + req.file.filename
       : req.body.existingProfilePic;
 
-    // Update the team member data
     const updatedMember = await TeamMember.findByIdAndUpdate(
       id,
       {
@@ -228,4 +230,4 @@ app.get("/price", function (req, res) {
   res.render("price");
 });
 
-app.listen(3000);
+app.listen(4000);
