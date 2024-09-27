@@ -12,9 +12,17 @@
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ullam odit consequuntur consequatur itaque, ducimus eligendi illum iusto consectetur obcaecati?</p>
     </section>
     <div class="main">
-        <h1><%= aboutServices ? aboutServices.name:"Services title" %></h1>
-        <p><%= aboutServices ? aboutServices.description:"No description available"%></p>
+      <% if (aboutServices && aboutServices.length > 0) { %>
+        <% aboutServices.forEach((data) => { %>
+          <h2><%= data.name %></h2>
+          <p><%= data.description %></p>
+        <% }) %>
+      <% } else { %>
+        <p>No services available.</p>
+      <% } %>
     </div>
+    
+    
     <%- include('./partials/footer') %>
 </body>
 </html>

@@ -10,6 +10,7 @@
 
 <div class="grid">
     <aside>
+      
         <button class="main-admin-btn one-btn">Add About</button>
         <button class="main-admin-btn two-btn">Add Team</button>
         <button class="main-admin-btn third-btn">Add Services</button>
@@ -56,14 +57,27 @@
         </section>
 
         <!-- Add Services Form -->
-        <section>
+        <section style="background-color: antiquewhite;">
             <h3>Add Services</h3>
-            <form action="/adminDashboard/services" method="POST">
-                <label for="sname"></label>
+            <form action="/services" method="POST">
+                
                 <input type="text" name="name" placeholder="Services Name">
                 <input type="text" name="description" placeholder="Describe about services">
                 <button type="submit">Add Services</button>
             </form>
+            <div class="all-services-list">
+          <% if(allServices && allServices.length>0){ %>
+            <% allServices.forEach(function(data){ %>
+              <p><%=data.name %></p>
+              <p><%= data.description%></p>
+            <%}) %> 
+            
+            
+          <% }  else{ %> 
+           <p>No service</p>
+          <%}%>
+          %>
+            </div>
         </section>
 
         <!-- Contact Messages Section -->

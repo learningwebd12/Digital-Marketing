@@ -1,0 +1,51 @@
+.first-about-photo{
+    width: 100%;
+    height: 30vw;
+    object-fit: cover;
+}
+.main-about-title{
+    font-size: 1vw;
+    font-family: pasag;
+    color: #fff;
+}
+.about-span{
+    font-weight: 700;
+    font-family: heading;
+}
+.two-box-about{
+    padding: 1vw 3vw;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.main-heading-text{
+    color: #fff;
+    font-size: 3vw;
+    font-family: pasag;
+    font-weight: 400;
+    width: 100%;
+    margin: 1vw 0;
+}
+.h1-about{
+    font-size: 5vw;
+    color: #fff;
+    font-family: bokis;
+    letter-spacing: 0.1vw;
+    font-weight: 400;
+    padding: 1vw 3vw;
+}
+.about-article{
+    display: flex;
+    justify-content: space-between;
+    padding: 4vw 0;
+}
+svg{
+    height: 20vw;
+    width: 30%;
+    
+}
+.full-pasag{
+    width: 50%;
+    line-height: 1.5vw;
+}
