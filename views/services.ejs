@@ -4,23 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../stylesheet/services.css">
 </head>
 <body>
     <%- include('./partials/header') %>
-    <section>
-<h1>Our Services</h1>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ullam odit consequuntur consequatur itaque, ducimus eligendi illum iusto consectetur obcaecati?</p>
+    <section class="main-sercices-section">
+      <div class="main-services-tex">
+        <h1>Our Services</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ullam odit consequuntur consequatur itaque, ducimus eligendi illum iusto consectetur obcaecati?</p>
+            </div>
+            <div class="all-services">
+              <% if (aboutServices && aboutServices.length > 0) { %>
+                <% aboutServices.forEach((data) => { %>
+                  <div class="main">
+                    <h2><%= data.name %></h2>
+                    <p><%= data.description %></p>
+                  </div>
+                <% }) %>
+              <% } %>
+            </div>
     </section>
-    <div class="main">
-      <% if (aboutServices && aboutServices.length > 0) { %>
-        <% aboutServices.forEach((data) => { %>
-          <h2><%= data.name %></h2>
-          <p><%= data.description %></p>
-        <% }) %>
-      <% } else { %>
-        <p>No services available.</p>
-      <% } %>
-    </div>
+    
     
     
     <%- include('./partials/footer') %>

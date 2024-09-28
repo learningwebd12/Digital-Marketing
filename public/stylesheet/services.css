@@ -1,0 +1,30 @@
+.main-sercices-section{
+    width: 100%;
+    padding: 1vw 3vw;
+}
+.all-services{
+    width: 100%;
+    padding: 1vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1vw;
+    
+}
+.main{
+    padding: 1vw 2vw;
+    background-color: #1A1A1A;
+    margin: 0.5vw 0;
+}
+.main h2{
+    font-size: 1.5vw;
+    font-family: heading;
+    font-weight: 400;
+    letter-spacing: 0.1vw;
+    color: rgb(255, 255, 255);
+    padding: 1vw 0;
+}
+.main p{
+    font-size: 1vw;
+    padding: 1vw 0;
+    color: rgb(204, 204, 204);
+}
