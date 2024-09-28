@@ -33,7 +33,7 @@
     font-family: bokis;
     letter-spacing: 0.1vw;
     font-weight: 400;
-    padding: 1vw 3vw;
+    padding: 2vw 3vw;
 }
 .about-article{
     display: flex;
@@ -47,5 +47,6 @@ svg{
 }
 .full-pasag{
     width: 50%;
-    line-height: 1.5vw;
+    line-height: 1.7vw;
+    font-family: poppins;
 }

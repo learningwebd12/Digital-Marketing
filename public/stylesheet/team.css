@@ -19,12 +19,15 @@
     justify-content: center;
     text-align: center;
     flex-direction: column;
-    color: antiquewhite;
+    color: rgb(255, 255, 255);
     
 }
 .ourteam{
-    font-family: heading;
+    font-family: Bokis;
     font-size: 3vw;
+    font-weight: 400;
+    letter-spacing: 0.1vw;
+    font-size: 5vw;
 }
 .meet-our-team-pasag{
     font-family: pasag;

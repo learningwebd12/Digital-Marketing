@@ -1,13 +1,49 @@
+.services-images{
+    padding: 3vw 0;
+    position: relative;
+}
+.our-services-text{
+    position: absolute;
+    top: 15vw;
+    left: 4vw;
+    color: #fff;
+    font-family: Bokis;
+    font-weight: 400;
+    letter-spacing: 0.1vw;
+    font-size: 5vw;
+}
+.main-picture-services{
+    width: 100%;
+    height: 30vw;
+    object-fit: cover;
+}
+.main-services-tex{
+    padding-bottom:5vw;
+}
+.services-h1{
+    font-family: heading;
+    font-size: 3vw;
+    color: #fff;
+}
+
+.services-pasag{
+    font-family: poppins;
+font-size: 1vw;
+width: 50%;
+}
+
 .main-sercices-section{
     width: 100%;
     padding: 1vw 3vw;
 }
+
 .all-services{
     width: 100%;
-    padding: 1vw;
+    padding: 1vw 0 7vw 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1vw;
+
     
 }
 .main{
@@ -27,4 +63,5 @@
     font-size: 1vw;
     padding: 1vw 0;
     color: rgb(204, 204, 204);
+    font-family: poppins;
 }
