@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/services/<%= servicesData._id %>" method="POST">
+
+        <input value="<%=servicesData.name%>" type="text" name="name" placeholder="Services Name">
+        <input value=" <%= servicesData.description%>" type="text" name="description"
+            placeholder="Describe about services">
+        <button type="submit">Update Services</button>
+    </form>
+</body>
+
+</html>

@@ -71,6 +71,8 @@
               <div class="all-services-items">
                 <p><%=data.name %></p>
               <p><%= data.description%></p>
+              <a href="/editServices/<%= data._id %>" class="edit-button">Edit</a>
+              <button onclick="deleteServices('<%= data._id %>')">Delete</button>
               </div>
             <%}) %> 
             
@@ -136,6 +138,21 @@
     </div>
 </div>
 <script>
+//delete services
+async function deleteServices(id){
+  const response= await fetch(`/services/${id}`,{
+    method:'DELETE',
+  });
+
+  if(response.ok){
+    location.reload();
+  }
+  else{
+    alert("error deleting ");
+  }
+}
+
+  //delete contact us
 async function deleteContact(id) {
   const response = await fetch(`/contact/${id}`, {
     method: 'DELETE',

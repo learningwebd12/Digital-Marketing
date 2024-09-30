@@ -71,6 +71,32 @@ app.get("/services", async function (req, res) {
     res.status(500).send("server error");
   }
 });
+//deleting services route
+app.delete("/services/:id", async function (req, res) {
+  const { id } = req.params;
+
+  try {
+    await Services.findByIdAndDelete(id);
+    res.status(200).send();
+  } catch (err) {
+    res.status(500).send({ err: "Error while deleting Services" });
+  }
+});
+
+//edit services
+app.get("/editservices/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const servicesData = await Services.findById(id);
+    if (!servicesData) {
+      return res.status(404).send("Service not found");
+    }
+    res.render("editServices", { servicesData });
+  } catch (err) {
+    res.status(500).send("server Error");
+  }
+});
 
 // Admin Dashboard
 app.get("/adminDashboard", async (req, res) => {
