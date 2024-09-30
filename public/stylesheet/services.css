@@ -65,3 +65,29 @@ width: 50%;
     color: rgb(204, 204, 204);
     font-family: poppins;
 }
+
+
+.lets-talk{
+    height: 15vw;
+    width: 100%;
+    padding: 2vw;
+    background-color: #1A1A1A;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.lets-talk-h1{
+    font-family: bokis;
+    font-size: 8vw;
+    font-weight: 400;
+    letter-spacing: 0.1vw;
+    color: #fff;
+}
+.contact-us-btn{
+    background-color: #aaff00;
+    color: #1A1A1A;
+    padding: 1vw 3vw;
+    border-radius: 10vw;
+    font-size: 1vw;
+    font-family: pasag;
+}
