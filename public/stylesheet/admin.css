@@ -9,6 +9,8 @@
     width: 100%;
     height: 100vh;
     display: flex;
+    background-color: aliceblue;
+    
 
 }
 aside{
@@ -18,27 +20,34 @@ aside{
     align-items: start;
     justify-content: start;
     padding: 2vw 1vw;
+    background-color: #1A1F2B;
+    border-right: 0.1vw solid #9d9d9d;
+}
+
+.marketing-text{
+    color: red;
 }
 .main-admin-btn{
-    background-color: rgb(41, 40, 40);
-    color: #fff;
+    background-color: #4500e6;
+    color: #ffffff;
+    padding: 1vw 0;
     outline: none;
     border: none;
-    padding: 1vw 3vw;
     margin: 1vw 0;
     width: 80%;
     cursor: pointer;
     border-radius: 0.3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1vw;
+}
+i{
+    margin: 0 1vw 0 0;
 }
 .main-admin{
     width: 80%;
     
-}
-.add-team{
-    display: none;
-}
-.about-dashboard{
-    display: none;
 }
 
 .all-contact-message{
@@ -50,14 +59,14 @@ table{
 }
 th{
     border: 1px solid rgb(135, 133, 133);
-    color: #fff;
+    color: #000000;
     font-weight: 400;
     padding: 1vw 2vw;
     width: 40%;
 }
 .all-message-details{
-    color: antiquewhite;
-    border: 1px solid #fff;
+    color: rgb(0, 0, 0);
+    border: 1px solid #000000;
     width: 40%;
     padding: 0.5vw;
     
@@ -66,4 +75,60 @@ th{
 .all-services-items{
     background-color: red;
     margin: 1vw 0;
+}
+
+.about-dashboard, .add-team, .add-services, .contact-us {
+    display: none;
+}
+
+/* about-admin css */
+.about-dashboard{
+    padding: 2vw;
+}
+.about-input{
+    padding: 1vw;
+    width: 50%;
+    outline: none;
+}
+.about-describe{
+    height: 10vw;
+    width: 50%;
+    padding: 1vw;
+    outline: none;
+}
+label{
+    font-size: 1vw;
+}
+/* team css */
+.all-team-member{
+    display: flex;
+    background-color: #ffffff;
+}
+.team-member{
+    display: flex; 
+    justify-content: start; 
+    flex-direction: column;
+    align-items:start;
+    
+}
+.list-team-btn{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 1vw 0;
+}
+.edit-button{
+    text-decoration: none;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 0.6vw 2vw;
+}
+.delete-team-member{
+    padding: 0.72vw 2vw;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin: 0 0 0 1vw;
 }

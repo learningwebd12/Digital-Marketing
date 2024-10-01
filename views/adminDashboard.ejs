@@ -5,29 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="/stylesheet/admin.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
 </head>
 <body>
 
-<div class="grid">
+  <div class="grid">
+
     <aside>
+      <h2 class="marketing-text">Marketing Mandu</h2>
+
+        <button class="main-admin-btn one-btn"><i class="ri-file-list-2-line"></i>Add About</button>
+
+       
+         <button class="main-admin-btn two-btn"><i class="ri-team-line"></i> Add Team </button>
+       
+
       
-        <button class="main-admin-btn one-btn">Add About</button>
-        <button class="main-admin-btn two-btn">Add Team</button>
-        <button class="main-admin-btn third-btn">Add Services</button>
-        <button class="main-admin-btn fourth-btn">Contact Us</button>
+        <button class="main-admin-btn third-btn"><i class="ri-settings-line"></i> Add Services</button>
+       
+
+       
+        <button class="main-admin-btn fourth-btn"><i class="ri-contacts-book-2-line"></i> Contact Us</button>
+       
+
     </aside>
 
     <div class="main-admin">
         <h1>Admin Dashboard</h1>
+        <div class="all-dashboard-box">
+          <h1>Good Morning Admin</h1>
+        </div>
+
         <!-- About Us Form -->
         <section class="about-dashboard">
             <h2>About Us</h2>
             <form action="/adminDashboard/about" method="POST">
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title" required><br><br>
+                <label for="title">Title:</label> <br>
+                <input class="about-input" type="text" id="title" name="title" required placeholder="Enter About Title"><br><br>
 
-                <label for="description">Description:</label>
-                <textarea id="description" name="description" required></textarea><br><br>
+                <label  for="description">Description:</label> <br>
+                <textarea id="description" name="description" class="about-describe" required placeholder="Enter About description"></textarea><br><br>
 
                 <button type="submit">Save</button>
             </form>
@@ -54,89 +74,90 @@
 
                 <button type="submit">Add Team Member</button>
             </form>
+
+            <!-- show team -->
+
+            <section>
+              <h1>All Team Members</h1>
+              <div class="all-team-member">
+                  <% if (allList && allList.length > 0) { %>
+                      <% allList.forEach(function(data) { %>
+                          <div class="team-member">
+                              <p>Name: <%= data.name %></p>
+                              <p>Position: <%= data.position %></p>
+                              <p>Profile Picture: <img style="height: 5vw;" src="<%= data.profilePic %>" alt="<%= data.name %>'s profile picture" /></p>
+                              <p>LinkedIn: <a href="<%= data.linkedin %>"><%= data.linkedin %></a></p>
+                              <p>Instagram: <a href="<%= data.instagram %>"><%= data.instagram %></a></p>
+                              <div class="list-team-btn">
+                                <a href="/edit/<%= data._id %>" class="edit-button">Edit</a>
+                              <button onclick="deleteTeamMember('<%= data._id %>')" class="delete-team-member">Delete</button>
+                              </div>
+                          </div>
+                      <% }); %>
+                  <% } else { %>
+                      <p>No team members found.</p>
+                  <% } %>
+              </div>
+          </section>
         </section>
 
         <!-- Add Services Form -->
-        <section style="background-color: antiquewhite;">
+        <section class="add-services" style="background-color: antiquewhite;">
             <h3>Add Services</h3>
             <form action="/services" method="POST">
-                
                 <input type="text" name="name" placeholder="Services Name">
                 <input type="text" name="description" placeholder="Describe about services">
                 <button type="submit">Add Services</button>
             </form>
             <div class="all-services-list">
-          <% if(allServices && allServices.length>0){ %>
-            <% allServices.forEach(function(data){ %>
-              <div class="all-services-items">
-                <p><%=data.name %></p>
-              <p><%= data.description%></p>
-              <a href="/editServices/<%= data._id %>" class="edit-button">Edit</a>
-              <button onclick="deleteServices('<%= data._id %>')">Delete</button>
-              </div>
-            <%}) %> 
-            
-            
-          <% }  else{ %> 
-           <p>No service</p>
-          <%}%>
-          %>
+                <% if(allServices && allServices.length>0){ %>
+                    <% allServices.forEach(function(data){ %>
+                        <div class="all-services-items">
+                            <p><%=data.name %></p>
+                            <p><%= data.description%></p>
+                            <a href="/editServices/<%= data._id %>" class="edit-button">Edit</a>
+                            <button onclick="deleteServices('<%= data._id %>')">Delete</button>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <p>No service</p>
+                <% } %>
             </div>
         </section>
 
         <!-- Contact Messages Section -->
-       <section class="all-contact-message">
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Message</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% if (contacts && contacts.length > 0) { %>
-              <% contacts.forEach(contact => { %>
-                <tr>
-                  <td class="all-message-details"><%= contact.name %></td>
-                  <td class="all-message-details"><%= contact.email %></td>
-                  <td class="all-message-details"><%= contact.message %></td>
-                  <td>
-                    <button type="button" onclick="deleteContact('<%= contact._id %>')">Delete</button>
-                  </td>
-                </tr>
-              <% }); %>
-            <% } else { %>
-              <tr>
-                <td colspan="4">No contact messages found.</td>
-              </tr>
-            <% } %>
-          </tbody>
-        </table>
-
-       </section>
-
-       <section>
-        <h1>All Team Members</h1>
-        <div class="all">
-          <% allList.forEach(function(data) { %>
-            <div class="team-member" style="border: 1px solid red; display: flex; justify-content: start; align-items: center;">
-              <p>Name: <%= data.name %></p>
-              <p>Position: <%= data.position %></p>
-              <p>Profile Picture: <img style="height: 5vw;" src="<%= data.profilePic %>" alt="<%= data.name %>'s profile picture" /></p>
-              <p>LinkedIn: <a href="<%= data.linkedin %>"><%= data.linkedin %></a></p>
-              <p>Instagram: <a href="<%= data.instagram %>"><%= data.instagram %></a></p>
-              <a href="/edit/<%= data._id %>" class="edit-button">Edit</a>
-              <button onclick="deleteTeamMember('<%= data._id %>')">Delete</button>
-            </div>
-          <% }); %>
-        </div>
-      </section>
-      
-          
-
+        <section class="contact-us">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (contacts && contacts.length > 0) { %>
+                        <% contacts.forEach(contact => { %>
+                            <tr>
+                                <td class="all-message-details"><%= contact.name %></td>
+                                <td class="all-message-details"><%= contact.email %></td>
+                                <td class="all-message-details"><%= contact.message %></td>
+                                <td>
+                                    <button type="button" onclick="deleteContact('<%= contact._id %>')">Delete</button>
+                                </td>
+                            </tr>
+                        <% }); %>
+                    <% } else { %>
+                        <tr>
+                            <td colspan="4">No contact messages found.</td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </section>
     </div>
 </div>
+
 <script>
 //delete services
 async function deleteServices(id){
@@ -181,21 +202,49 @@ async function deleteTeamMember(id){
   }
 }
 
+let btnAbout = document.getElementsByClassName("one-btn")[0];
+let btnTeam = document.getElementsByClassName("two-btn")[0];
+let btnServices = document.getElementsByClassName("third-btn")[0];
+let btnContactUs = document.getElementsByClassName("fourth-btn")[0];
+
+let sectionAbout = document.getElementsByClassName("about-dashboard")[0];
+let sectionTeam = document.getElementsByClassName("add-team")[0];
+let sectionServices = document.getElementsByClassName("add-services")[0];
+let sectionContactUs = document.getElementsByClassName("contact-us")[0];
+
+function hideAllSections() {
+    sectionAbout.style.display = "none";
+    sectionTeam.style.display = "none";
+    sectionServices.style.display = "none";
+    sectionContactUs.style.display = "none";
+}
+
+// Show only the "Add About" section
+btnAbout.addEventListener("click", function() {
+    hideAllSections();
+    sectionAbout.style.display = "block";
+});
+
+// Show only the "Add Team" section
+btnTeam.addEventListener("click", function() {
+    hideAllSections();
+    sectionTeam.style.display = "block";
+});
+
+// Show only the "Add Services" section
+btnServices.addEventListener("click", function() {
+    hideAllSections();
+    sectionServices.style.display = "block";
+});
+
+// Show only the "Contact Us" section
+btnContactUs.addEventListener("click", function() {
+    hideAllSections();
+    sectionContactUs.style.display = "block";
+});
 
 
 
-    let btn = document.getElementsByClassName("one-btn")[0];
-    let twoBtn = document.getElementsByClassName("two-btn")[0];
-
-    let showNext = document.getElementsByClassName("add-team")[0];
-    let show = document.getElementsByClassName("about-dashboard")[0];
-
-    btn.addEventListener("click", function() {
-        show.style.display = "block";
-    });
-    twoBtn.addEventListener("click", function() {
-        showNext.style.display = "block";
-    });
 </script>
 </body>
 </html>
