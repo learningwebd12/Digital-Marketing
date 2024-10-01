@@ -52,14 +52,22 @@ app.post("/adminDashboard/about", async (req, res, next) => {
 });
 
 //services
-app.post("/services", async function (req, res) {
+app.post("/services/:id", async (req, res) => {
+  const { id } = req.params;
   const { name, description } = req.body;
 
   try {
-    await Services.create({ name, description });
-    res.redirect("services?status=success");
-  } catch (error) {
-    res.status(500).send("Error occur" + error.message);
+    const service = await Services.findByIdAndUpdate(
+      id,
+      { name, description },
+      { new: true }
+    );
+    if (!service) {
+      return res.status(404).send("Service not found");
+    }
+    res.redirect("/services");
+  } catch (err) {
+    res.status(500).send("Server Error");
   }
 });
 

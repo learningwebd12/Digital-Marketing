@@ -34,9 +34,9 @@
     </aside>
 
     <div class="main-admin">
-        <h1>Admin Dashboard</h1>
+        
         <div class="all-dashboard-box">
-          <h1>Good Morning Admin</h1>
+          <h1>Hello, Admin</h1>
         </div>
 
         <!-- About Us Form -->
@@ -49,30 +49,30 @@
                 <label  for="description">Description:</label> <br>
                 <textarea id="description" name="description" class="about-describe" required placeholder="Enter About description"></textarea><br><br>
 
-                <button type="submit">Save</button>
+                <button type="submit" class="post-about">Post About</button>
             </form>
         </section>
 
         <!-- Add Team Member Form -->
         <section class="add-team">
             <h2>Add Team Member</h2>
-            <form action="/adminDashboard/team" method="POST" enctype="multipart/form-data">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br><br>
+            <form action="/adminDashboard/team" method="POST" enctype="multipart/form-data" class="team-from">
+                <label for="name">Full Name:</label> <br>
+                <input type="text" id="name" name="name" required placeholder="Full Name"><br><br>
 
-                <label for="position">Position:</label>
-                <input type="text" id="position" name="position" required><br><br>
+                <label for="position">Position:</label> <br>
+                <input type="text" id="position" name="position" required placeholder="Position"><br><br>
 
-                <label for="profilePic">Profile Picture:</label>
-                <input type="file" id="profilePic" name="profilePic" accept="image/*" required><br><br>
+                <label for="profilePic">Profile Picture:</label> <br>
+                <input type="file" id="profilePic" name="profilePic" accept="image/*" required ><br><br>
 
-                <label for="linkedin">LinkedIn URL:</label>
-                <input type="text" id="linkedin" name="linkedin"><br><br>
+                <label for="linkedin">LinkedIn URL:</label> <br>
+                <input type="text" id="linkedin" name="linkedin" placeholder="LinkedIn URL"><br><br>
 
-                <label for="instagram">Instagram URL:</label>
-                <input type="text" id="instagram" name="instagram"><br><br>
+                <label for="instagram">Instagram URL:</label> <br>
+                <input type="text" id="instagram" name="instagram" placeholder="Instagram URL"><br><br>
 
-                <button type="submit">Add Team Member</button>
+                <button type="submit" class="add-team-btn">Add Team Member</button> <br>
             </form>
 
             <!-- show team -->
@@ -102,21 +102,25 @@
         </section>
 
         <!-- Add Services Form -->
-        <section class="add-services" style="background-color: antiquewhite;">
+        <section class="add-services">
             <h3>Add Services</h3>
             <form action="/services" method="POST">
-                <input type="text" name="name" placeholder="Services Name">
-                <input type="text" name="description" placeholder="Describe about services">
-                <button type="submit">Add Services</button>
+              <label for="">Services Name:</label> <br>
+                <input type="text" name="name" placeholder="Services Name"> <br>
+                <label for="">Describe Services:</label> <br>
+                <textarea class="services-describe" type="text" name="description" maxlength="226" placeholder="Describe about services"></textarea> <br>
+                <button type="submit" class="services-add-btn">Add Services</button>
             </form>
             <div class="all-services-list">
                 <% if(allServices && allServices.length>0){ %>
                     <% allServices.forEach(function(data){ %>
                         <div class="all-services-items">
-                            <p><%=data.name %></p>
+                            <p class="main-title-services"><%=data.name%></p>
                             <p><%= data.description%></p>
-                            <a href="/editServices/<%= data._id %>" class="edit-button">Edit</a>
-                            <button onclick="deleteServices('<%= data._id %>')">Delete</button>
+                            <div class="edit-services-and-delete">
+                              <a href="/editServices/<%= data._id %>" class="edit-button-services">Edit</a>
+                            <button onclick="deleteServices('<%= data._id %>')" class="services-delete-btn">Delete</button>
+                            </div>
                         </div>
                     <% }) %>
                 <% } else { %>

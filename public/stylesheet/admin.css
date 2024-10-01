@@ -7,13 +7,14 @@
 
 .grid{
     width: 100%;
-    height: 100vh;
+    height: 70vw;
     display: flex;
     background-color: aliceblue;
     
 
 }
 aside{
+    
     width: 20%;
     display: flex;
     flex-direction: column;
@@ -23,7 +24,14 @@ aside{
     background-color: #1A1F2B;
     border-right: 0.1vw solid #9d9d9d;
 }
-
+.all-dashboard-box{
+    background-color: #1A1F2B;
+    height: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
 .marketing-text{
     color: red;
 }
@@ -72,10 +80,7 @@ th{
     
 }
 
-.all-services-items{
-    background-color: red;
-    margin: 1vw 0;
-}
+
 
 .about-dashboard, .add-team, .add-services, .contact-us {
     display: none;
@@ -99,10 +104,37 @@ th{
 label{
     font-size: 1vw;
 }
+.post-about{
+    padding: 1vw 3vw;
+
+    outline: none;
+    border: none;
+    background-color: #4500e6;
+    color: #ffffff;
+    cursor: pointer;
+}
 /* team css */
+.team-from{
+    padding: 2vw;
+}
+.team-from input{
+    height: 1vw;
+    width: 50%;
+    padding: 1.3vw;
+    outline: none;
+}
 .all-team-member{
     display: flex;
     background-color: #ffffff;
+}
+.add-team-btn{
+    padding: 1vw 3vw;
+
+    outline: none;
+    border: none;
+    background-color: #4500e6;
+    color: #ffffff;
+    cursor: pointer;
 }
 .team-member{
     display: flex; 
@@ -119,16 +151,71 @@ label{
 }
 .edit-button{
     text-decoration: none;
-    background-color: #000000;
+    background-color: #4500e6;
     color: #ffffff;
     padding: 0.6vw 2vw;
 }
 .delete-team-member{
     padding: 0.72vw 2vw;
-    background-color: #000000;
+    background-color: #4500e6;
     color: #ffffff;
     border: none;
     outline: none;
     cursor: pointer;
     margin: 0 0 0 1vw;
+}
+
+/* services css */
+.add-services form input{
+   border: none;
+    width: 50%;
+    padding: 1vw ;
+    outline: none;
+}
+.services-describe{
+    height: 10vw;
+    width: 50%;
+    padding: 1vw;
+    outline: none;
+    border: none;
+}
+.add-services form{
+    padding: 1vw;
+}
+.all-services-list{
+    padding: 1vw;
+}
+
+.edit-services-and-delete{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 1vw 0;
+}
+.services-add-btn{
+    padding: 1vw 2vw;
+    background-color: #4500e6;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    
+}
+.edit-button-services{
+    text-decoration: none;
+    background-color: #4500e6;
+    color: #ffffff;
+    padding: 0.6vw 2vw;
+}
+.services-delete-btn{
+    padding: 0.72vw 2vw;
+    background-color: #4500e6;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin: 0 0 0 1vw;
+}
+.main-title-services{
+font-weight: 700;
 }
