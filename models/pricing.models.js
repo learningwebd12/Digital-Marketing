@@ -1,9 +1,10 @@
+const mongoose = require("mongoose");
 const pricingSchema = new mongoose.Schema({
   planName: {
     type: String,
     required: true,
   },
-  decription: {
+  description: {
     type: String,
     required: true,
   },
@@ -25,4 +26,6 @@ const pricingSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Pricing", pricingSchema);
+const Pricing = mongoose.model("Pricing", pricingSchema);
+
+module.exports = Pricing;

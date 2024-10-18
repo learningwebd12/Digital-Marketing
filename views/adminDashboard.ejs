@@ -127,6 +127,44 @@
                     <p>No service</p>
                 <% } %>
             </div>
+
+            <!-- pricing form -->
+        </section>
+<h1>Add new Pricing</h1>
+<form action="/adminDashboard/pricing" method="Post">
+  <div>
+    <label>Plan Name</label>
+    <input type="text" name="planName" placeholder="Plan Name" required>
+  </div>
+
+  <div>
+    <label>Description</label>
+    <input type="text" name="description" placeholder="Description" required>
+  </div>
+
+  <div>
+    <label>Features</label>
+    <input type="text" name="features" placeholder="Feature1, Feature2, Featire3" required>
+  </div>
+
+  <div>
+    <label>Price (Rs)</label>
+    <input type="text" name="price" placeholder="Description" required>
+  </div>
+
+  <div>
+    <label>Duration</label>
+    <select name="duration">
+      <option value="monthly">Monthly</option>
+      <option value="Yearly">Yearly</option>
+    </select>
+  </div>
+
+  <button type="submit">Add Pricing Plan</button>
+
+</form>
+        <section>
+
         </section>
 
         <!-- Contact Messages Section -->

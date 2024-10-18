@@ -6,6 +6,7 @@ const About = require("./models/about.models");
 const TeamMember = require("./models/ourteam.models");
 const Services = require("./models/services.model");
 const Contact = require("./models/contact.models");
+const Pricing = require("./models/pricing.models");
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
@@ -111,11 +112,13 @@ app.get("/adminDashboard", async (req, res) => {
   const contacts = await Contact.find({}).exec();
   const allList = await TeamMember.find({}).exec();
   const allServices = await Services.find({}).exec();
+  const pricing = await Pricing.find({}).exec();
   // console.log(contacts);
   res.render("adminDashboard", {
     contacts: contacts,
     allList: allList,
     allServices: allServices,
+    pricing: pricing,
   });
 });
 
@@ -221,6 +224,24 @@ app.post("/team/update/:id", upload.single("profilePic"), async (req, res) => {
   }
 });
 
+//pricing
+app.post("/adminDashboard/pricing", async function (req, res) {
+  const { planName, description, features, price, duration } = req.body;
+
+  try {
+    const newPlan = new Pricing({
+      planName,
+      description,
+      features: features.split(","),
+      price,
+      duration,
+    });
+    await newPlan.save();
+    res.redirect("/price");
+  } catch (err) {
+    console.log(err);
+  }
+});
 //contact us
 
 app.get("/contact", function (req, res) {
