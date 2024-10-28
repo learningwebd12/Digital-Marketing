@@ -1,0 +1,26 @@
+
+.main-pricing-div{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1vw 2vw;
+}
+.pricing-plan{
+    width: 30%;
+background-color: #212121;
+padding: 7vw 2vw;
+border-radius: 1vw;
+box-shadow: 0 4px 23px 0 rgba(32, 33, 33, 0.3);
+clip-path: polygon(80% 0, 100% 20%, 100% 100%, 0 100%, 0 0);
+}
+.features-list{
+    font-size: 1.2vw;
+    padding: 0.5vw;
+    margin: 0.5vw 0;
+    border-radius: 0.3vw;
+    list-style-type: none;
+    font-family: "pasag";
+    color: rgb(255, 255, 255);
+    background: linear-gradient(200deg, transparent, #757677);
+}

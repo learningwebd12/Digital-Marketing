@@ -3,11 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../stylesheet/price.css">
     <title>Document</title>
 </head>
 <body>
     <%- include('./partials/header') %>
-    <h1>Price</h1>
+    <div class="main-pricing-div">
+        <% allPricing.forEach(plan => { %>
+            <div class="pricing-plan">
+              <h3><%= plan.planName %></h3>
+              <p><%= plan.description %></p>
+              <ul>
+                <% plan.features.forEach(feature => { %>
+                  <li class="features-list" ><%= feature %></li>
+                <% }) %>
+              </ul>
+              <p>Price: $<%= plan.price %> per <%= plan.duration %></p>
+              <button >Learn More</button>
+            </div>
+          <% }) %>
+   
+
+    </div>
     <%- include('./partials/footer') %>
 </body>
 </html>

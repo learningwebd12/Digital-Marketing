@@ -113,7 +113,7 @@ app.get("/adminDashboard", async (req, res) => {
   const allList = await TeamMember.find({}).exec();
   const allServices = await Services.find({}).exec();
   const pricing = await Pricing.find({}).exec();
-  // console.log(contacts);
+  // console.log(allPricing);
   res.render("adminDashboard", {
     contacts: contacts,
     allList: allList,
@@ -242,6 +242,16 @@ app.post("/adminDashboard/pricing", async function (req, res) {
     console.log(err);
   }
 });
+
+app.get("/price", async function (req, res) {
+  try {
+    const allPricing = await Pricing.find(); // Use find() to get all documents
+    res.render("price", { allPricing: allPricing || [] }); // Pass the array of services to the view
+  } catch (err) {
+    res.status(500).send("server error");
+  }
+});
+
 //contact us
 
 app.get("/contact", function (req, res) {
