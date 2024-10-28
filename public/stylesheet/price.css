@@ -9,7 +9,7 @@
 .pricing-plan{
     width: 30%;
 background-color: #212121;
-padding: 7vw 2vw;
+padding: 5vw 2vw 1vw 2vw;
 border-radius: 1vw;
 box-shadow: 0 4px 23px 0 rgba(32, 33, 33, 0.3);
 clip-path: polygon(80% 0, 100% 20%, 100% 100%, 0 100%, 0 0);
@@ -23,4 +23,34 @@ clip-path: polygon(80% 0, 100% 20%, 100% 100%, 0 100%, 0 0);
     font-family: "pasag";
     color: rgb(255, 255, 255);
     background: linear-gradient(200deg, transparent, #757677);
+}
+.main-price-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vw 0;
+}
+.price-money{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    color: aliceblue;
+    padding: 1vw 0;
+}
+.money{
+    font-family: heading; 
+    color: #aaff00;
+    margin: 0 0.2vw;
+}
+.price-btn{
+    outline: none;
+    border: none;
+    padding: 1.1vw 3vw;
+    background-color: #aaff00;
+    border-radius:10vw;
+    cursor: pointer;
+    font-size: 1vw;
+    font-family: pasag;
+    color: #000000;
+    font-weight: 700;
 }
