@@ -1,0 +1,32 @@
+<h2>Edit Pricing Plan</h2>
+<form action="/adminDashboard/edit/<%= pricingPlan._id %>" method="POST">
+  <div>
+    <label for="planName">Plan Name:</label>
+    <input type="text" name="planName" value="<%= pricingPlan.planName %>" required>
+  </div>
+  <div>
+    <label for="description">Description:</label>
+    <textarea name="description" required><%= pricingPlan.description %></textarea>
+  </div>
+  <div>
+    <label for="features">Features (comma-separated):</label>
+    <input type="text" name="features" value="<%= pricingPlan.features ? pricingPlan.features.join(', ') : '' %>" required>
+    
+    <!-- Display features as a list -->
+    <ul>
+      <% (pricingPlan.features || []).forEach(feature => { %>
+        <li class="features-list"><%= feature %></li>
+      <% }) %>
+    </ul>
+  </div>
+  <div>
+    <label for="price">Price:</label>
+    <input type="number" name="price" value="<%= pricingPlan.price %>" required>
+  </div>
+  <div>
+    <label for="duration">Duration:</label>
+    <input type="text" name="duration" value="<%= pricingPlan.duration %>" required>
+  </div>
+  <button type="submit">Save Changes</button>
+</form>
+<a href="/adminDashboard">Cancel</a>

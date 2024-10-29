@@ -127,9 +127,9 @@
                     <p>No service</p>
                 <% } %>
             </div>
-
+          </section>
             <!-- pricing form -->
-        </section>
+            <section>
 <h1>Add new Pricing</h1>
 <form action="/adminDashboard/pricing" method="Post">
   <div>
@@ -163,7 +163,23 @@
   <button type="submit">Add Pricing Plan</button>
 
 </form>
-        <section>
+
+<div class="pricing-plans">
+  <h2>Pricing Plans</h2>
+  <% pricing.forEach(function(items){ %>
+    <div class="plan">
+      <h3><%= items.planName %></h3>
+      <p><%= items.description %></p>
+      <p>Features: <%= items.features.join(", ") %></p>
+      <p>Price: $<%= items.price %></p>
+      <p>Duration: <%= items.duration %></p>
+      <a href="/adminDashboard/edit/<%= items._id%>" class="price-edit-btn">Edit</a>
+      <button type="button" onclick="deletePricing('<%= items._id %>')">Delete</button>
+    </div>
+  <% }) %>
+</div>
+
+        
 
         </section>
 
@@ -201,6 +217,18 @@
 </div>
 
 <script>
+  //delete Pricing
+  async function deletePricing(id){
+    const response= await fetch(`/price/${id}`,{
+      method:'DELETE',
+    });
+    if(response.ok){
+      location.reload();
+    }
+    else{
+      alert("Error Deleting");
+    }
+  }
 //delete services
 async function deleteServices(id){
   const response= await fetch(`/services/${id}`,{

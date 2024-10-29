@@ -252,6 +252,48 @@ app.get("/price", async function (req, res) {
   }
 });
 
+//edit price
+app.get("/adminDashboard/edit/:id", async function (req, res) {
+  const { id } = req.params;
+  try {
+    const pricingPlan = await Pricing.findById(id);
+    res.render("editPricing", { pricingPlan });
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("server error");
+  }
+});
+// update price
+app.post("/adminDashboard/edit/:id", async function (req, res) {
+  const { planName, description, features, price, duration } = req.body;
+
+  try {
+    const updatedPlan = {
+      planName,
+      description,
+      features: features.split(",").map((feature) => feature.trim()), // Split and trim spaces
+      price,
+      duration,
+    };
+
+    await Pricing.findByIdAndUpdate(req.params.id, updatedPlan);
+    res.redirect("/adminDashboard");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+});
+app.delete("/price/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Pricing.findByIdAndDelete(id);
+    res.status(200).send({ message: "Pricing plan deleted successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ error: "Error deleting pricing plan" });
+  }
+});
+
 //contact us
 
 app.get("/contact", function (req, res) {
