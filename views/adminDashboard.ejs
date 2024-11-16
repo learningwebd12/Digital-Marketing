@@ -26,7 +26,7 @@
       
         <button class="main-admin-btn third-btn"><i class="ri-settings-line"></i> Add Services</button>
        
-
+<button class="main-admin-btn pricing-btn"><i class="ri-money-dollar-circle-line"></i>Pricing</button>
        
         <button class="main-admin-btn fourth-btn"><i class="ri-contacts-book-2-line"></i> Contact Us</button>
        
@@ -128,32 +128,34 @@
                 <% } %>
             </div>
           </section>
+
             <!-- pricing form -->
-            <section>
-<h1>Add new Pricing</h1>
-<form action="/adminDashboard/pricing" method="Post">
-  <div>
-    <label>Plan Name</label>
+<section class="pricing-dashboard">
+ <h1 class="pricing-text-h1">Add new Pricing</h1>
+ <form action="/adminDashboard/pricing" method="Post" class="pricing-form">
+
+  <div class="plan-div">
+    <label>Plan Name:</label>
     <input type="text" name="planName" placeholder="Plan Name" required>
   </div>
 
-  <div>
-    <label>Description</label>
+  <div class="plan-div">
+    <label>Description:</label>
     <input type="text" name="description" placeholder="Description" required>
   </div>
 
-  <div>
-    <label>Features</label>
+  <div class="plan-div">
+    <label>Features:</label>
     <input type="text" name="features" placeholder="Feature1, Feature2, Featire3" required>
   </div>
 
-  <div>
-    <label>Price (Rs)</label>
-    <input type="text" name="price" placeholder="Description" required>
+  <div class="plan-div">
+    <label>Price (Rs):</label>
+    <input type="text" name="price" placeholder="Price" required>
   </div>
 
-  <div>
-    <label>Duration</label>
+  <div class="plan-div">
+    <label>Duration:</label>
     <select name="duration">
       <option value="monthly">Monthly</option>
       <option value="Yearly">Yearly</option>
@@ -165,16 +167,19 @@
 </form>
 
 <div class="pricing-plans">
-  <h2>Pricing Plans</h2>
+  <h2 class="showing-pricing-h2">All Pricing Plans</h2>
+  <hr>
   <% pricing.forEach(function(items){ %>
     <div class="plan">
-      <h3><%= items.planName %></h3>
-      <p><%= items.description %></p>
-      <p>Features: <%= items.features.join(", ") %></p>
-      <p>Price: $<%= items.price %></p>
-      <p>Duration: <%= items.duration %></p>
-      <a href="/adminDashboard/edit/<%= items._id%>" class="price-edit-btn">Edit</a>
-      <button type="button" onclick="deletePricing('<%= items._id %>')">Delete</button>
+      <h3 class="plan-name-h3"><%= items.planName %></h3>
+      <p class="all-plan-items-p"><%= items.description %></p>
+      <p class="all-plan-items-p">Features: <%= items.features.join(", ") %></p>
+      <p class="all-plan-items-p">Price: $<%= items.price %></p>
+      <p class="all-plan-items-p">Duration: <%= items.duration %></p>
+      <div class="edit-and-delete-btn">
+        <a href="/adminDashboard/edit/<%= items._id%>" class="price-edit-btn">Edit</a>
+      <button class="delete-btn-pricing" type="button" onclick="deletePricing('<%= items._id %>')">Delete</button>
+      </div>
     </div>
   <% }) %>
 </div>
@@ -271,22 +276,24 @@ async function deleteTeamMember(id){
     alert("error deleting team member");
   }
 }
-
 let btnAbout = document.getElementsByClassName("one-btn")[0];
 let btnTeam = document.getElementsByClassName("two-btn")[0];
 let btnServices = document.getElementsByClassName("third-btn")[0];
 let btnContactUs = document.getElementsByClassName("fourth-btn")[0];
+let btnPricing = document.getElementsByClassName("pricing-btn")[0];
 
 let sectionAbout = document.getElementsByClassName("about-dashboard")[0];
 let sectionTeam = document.getElementsByClassName("add-team")[0];
 let sectionServices = document.getElementsByClassName("add-services")[0];
 let sectionContactUs = document.getElementsByClassName("contact-us")[0];
+let sectionPricing = document.getElementsByClassName("pricing-dashboard")[0];
 
 function hideAllSections() {
     sectionAbout.style.display = "none";
     sectionTeam.style.display = "none";
     sectionServices.style.display = "none";
     sectionContactUs.style.display = "none";
+    sectionPricing.style.display = "none";
 }
 
 // Show only the "Add About" section
@@ -313,8 +320,16 @@ btnContactUs.addEventListener("click", function() {
     sectionContactUs.style.display = "block";
 });
 
+// Show only the "Pricing Plans" section
+btnPricing.addEventListener("click", function() {
+    hideAllSections();
+    sectionPricing.style.display = "block";
+});
+
+
 
 
 </script>
+
 </body>
 </html>
