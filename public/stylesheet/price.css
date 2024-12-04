@@ -1,4 +1,40 @@
+.about-banner-images{
+    width: 100%;
+    position: relative;
 
+}
+.main-pricing-title{
+    position: absolute;
+    top: 13vw;
+    left: 45vw;
+    font-size: 3vw;
+    font-family: heading;
+    color: #fff;
+
+}
+.price-images-for-background{
+    width: 100%;
+}
+.price-heading-text{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3vw 0;
+}
+.price-heading-h1{
+    font-family: pasag;
+    color: #fff;
+    font-size: 3vw;
+    text-align: center;
+}
+.price-pasag-p{
+    font-family: pasag;
+    font-size: 1vw;
+    text-align: center;
+    width: 50%;
+    color: #757677;
+}
 .main-pricing-div{
     width: 100%;
     display: flex;
