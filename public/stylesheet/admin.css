@@ -32,9 +32,17 @@ aside{
     background-color: #1A1F2B;
     height: 5vw;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     color: #ffffff;
+    padding: 0 2vw;
+}
+.logout-btn{
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #130bb8;
+    padding: 0.8vw 1.5vw;
+    border-radius: 0.2vw;
 }
 .marketing-text{
     color: red;
@@ -94,11 +102,12 @@ th{
 }
 .about-input{
     padding: 1vw;
+    height: 1vw;
     width: 50%;
     outline: none;
 }
 .about-describe{
-    height: 10vw;
+    height: 1vw;
     width: 50%;
     padding: 1vw;
     outline: none;
@@ -114,6 +123,19 @@ label{
     background-color: #4500e6;
     color: #ffffff;
     cursor: pointer;
+}
+.show-about-data{
+    background-color: #1A1F2B;
+    padding: 1vw 2vw;
+    margin: 1vw 0;
+}
+.about-admin-title{
+    color: #ffffff;
+    font-size: 1vw;
+}
+.about-admin-pasag{
+    color: #9d9d9d;
+    font-size: 0.9vw;
 }
 /* team css */
 .team-from{

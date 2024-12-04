@@ -37,7 +37,7 @@
         
         <div class="all-dashboard-box">
           <h1>Hello, Admin</h1> 
-          <a href="/logout">Logout</a>
+          <a href="/logout" class="logout-btn">Logout</a>
         </div>
 
         <!-- About Us Form -->
@@ -58,9 +58,9 @@
           <div class="show-about-data">
             <% if (aboutData && aboutData.length > 0) { %>
               <% aboutData.forEach(function (myData) { %>
-                <p><%= myData.title %></p>
-                <p><%= myData.descriptionOne %></p>
-                <p><%= myData.descriptionTwo %></p>
+                <p class="about-admin-title"><%= myData.title %></p>
+                <p class="about-admin-pasag"><%= myData.descriptionOne %></p> <br>
+                <p class="about-admin-pasag"><%= myData.descriptionTwo %></p>
               <% }); %>
             <% } else { %>
               <p>No data available.</p>
