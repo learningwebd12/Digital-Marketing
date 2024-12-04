@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../stylesheet/login.css">
+</head>
+<body>
+  <div class="login-page">
+    <h1 style="color: #fff;">Login</h1>
+    <form action="/verifyLogin" method="POST">
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required placeholder="Email"><br><br>
+        
+        <label for="otp">Password:</label><br>
+        <input type="text" id="otp" name="otp" required placeholder="Password"><br><br>
+
+        <button type="submit">Login</button>
+    </form>
+  </div>
+</body>
+</html>

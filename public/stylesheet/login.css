@@ -1,0 +1,56 @@
+@font-face {
+    font-family: font;
+    src: url(../fonts/NeueMachina-Regular.otf);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+.login-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(10, 6, 27);
+    flex-direction: column;
+}
+h1{
+    font-family: font;
+    margin: 1vw 0;
+}
+label{
+    color: #fff;
+    font-family: font;
+    font-size: 1vw;
+    
+}
+button{
+    font-size: 1vw; 
+    font-family: font;
+    padding: 1vw 3vw;
+    outline: none;
+    border: none;
+    border-radius: 0.3vw;
+    cursor: pointer;
+}
+form{
+    width: 30%;
+    background-color: rgba(240, 234, 234, 0.179);
+    padding:2vw;
+}
+
+input{
+    font-family: font;
+    outline: none;
+    border: none;
+    padding: 1vw;
+    width: 100%;
+    margin: 0.5vw 0;
+}
+input::placeholder{
+    font-family: font;
+}

@@ -3,11 +3,24 @@
     height: 30vw;
     object-fit: cover;
 }
-.main-about-title{
-    font-size: 1vw;
-    font-family: pasag;
-    color: #fff;
+.about-banner-images{
+    width: 100%;
+    position: relative;
+
 }
+.main-about-title{
+    position: absolute;
+    top: 10vw;
+    left: 40vw;
+    font-size: 3vw;
+    font-family: heading;
+    color: #fff;
+
+}
+.about-images-for-background{
+    width: 100%;
+}
+
 .about-span{
     font-weight: 700;
     font-family: heading;

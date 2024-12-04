@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const session = require("express-session");
 const multer = require("multer");
 const About = require("./models/about.models");
 const TeamMember = require("./models/ourteam.models");
@@ -24,6 +25,15 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
+
+app.use(
+  session({
+    secret: "your-secret-key", // Replace with a strong secret key
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false }, // Use `secure: true` if using HTTPS
+  })
+);
 
 app.get("/", (req, res) => {
   res.render("index");
@@ -107,13 +117,20 @@ app.get("/editservices/:id", async (req, res) => {
   }
 });
 
+function ensureAuthenticated(req, res, next) {
+  if (req.session.isAuthenticated) {
+    return next(); // User is authenticated, proceed to the next middleware/route
+  }
+  res.redirect("/login"); // Redirect to login if not authenticated
+}
+
 // Admin Dashboard
-app.get("/adminDashboard", async (req, res) => {
+
+app.get("/adminDashboard", ensureAuthenticated, async (req, res) => {
   const contacts = await Contact.find({}).exec();
   const allList = await TeamMember.find({}).exec();
   const allServices = await Services.find({}).exec();
   const pricing = await Pricing.find({}).exec();
-  // console.log(allPricing);
   res.render("adminDashboard", {
     contacts: contacts,
     allList: allList,
@@ -335,6 +352,31 @@ app.delete("/contact/:id", async function (req, res) {
 
 app.get("/price", function (req, res) {
   res.render("price");
+});
+
+// Routes
+app.get("/login", (req, res) => {
+  res.render("login"); // Render the EJS login view
+});
+
+app.post("/verifyLogin", (req, res) => {
+  const { email, otp } = req.body;
+
+  if (email === "regmiganesh87@gmail.com" && otp === "123456") {
+    req.session.isAuthenticated = true; // Set session as authenticated
+    return res.redirect("/adminDashboard");
+  } else {
+    res.status(401).send("Invalid Email or OTP");
+  }
+});
+
+app.get("/logout", (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      return res.status(500).send("Error logging out");
+    }
+    res.redirect("/login");
+  });
 });
 
 app.listen(3000);
