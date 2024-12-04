@@ -44,14 +44,29 @@
         <section class="about-dashboard">
             <h2>About Us</h2>
             <form action="/adminDashboard/about" method="POST">
-                <label for="title">Title:</label> <br>
-                <input class="about-input" type="text" id="title" name="title" required placeholder="Enter About Title"><br><br>
-
-                <label  for="description">Description:</label> <br>
-                <textarea id="description" name="description" class="about-describe" required placeholder="Enter About description"></textarea><br><br>
-
-                <button type="submit" class="post-about">Post About</button>
-            </form>
+              <label for="title">Title:</label><br>
+              <input class="about-input" type="text" id="title" name="title" required placeholder="Enter About Title"><br><br>
+          
+              <label for="descriptionOne">Description One:</label><br>
+              <input id="descriptionOne" type="text" name="descriptionOne" class="about-describe" required placeholder="Enter About description"><br><br>
+          
+              <label for="descriptionTwo">Description Two:</label><br>
+              <input id="descriptionTwo" type="text" name="descriptionTwo" class="about-describe" required placeholder="Enter About description"><br><br>
+          
+              <button type="submit" class="post-about">Post About</button>
+          </form>
+          <div class="show-about-data">
+            <% if (aboutData && aboutData.length > 0) { %>
+              <% aboutData.forEach(function (myData) { %>
+                <p><%= myData.title %></p>
+                <p><%= myData.descriptionOne %></p>
+                <p><%= myData.descriptionTwo %></p>
+              <% }); %>
+            <% } else { %>
+              <p>No data available.</p>
+            <% } %>
+          </div>
+          
         </section>
 
         <!-- Add Team Member Form -->

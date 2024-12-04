@@ -39,21 +39,13 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/about", async (req, res) => {
-  try {
-    const aboutData = await About.findOne();
-    res.render("about", { aboutData });
-  } catch (err) {
-    res.status(500).send("Server Error");
-  }
-});
-
-app.post("/adminDashboard/about", async (req, res, next) => {
-  const { title, description } = req.body;
+app.post("/adminDashboard/about", async (req, res) => {
+  console.log(req.body); // Check what data you're receiving
+  const { title, descriptionOne, descriptionTwo } = req.body;
 
   const updateAbout = await About.findOneAndUpdate(
     {},
-    { title, description },
+    { title, descriptionOne, descriptionTwo },
     { new: true, upsert: true }
   );
   if (updateAbout === null) {
@@ -131,11 +123,13 @@ app.get("/adminDashboard", ensureAuthenticated, async (req, res) => {
   const allList = await TeamMember.find({}).exec();
   const allServices = await Services.find({}).exec();
   const pricing = await Pricing.find({}).exec();
+  const aboutData = await About.find({}).exec();
   res.render("adminDashboard", {
     contacts: contacts,
     allList: allList,
     allServices: allServices,
     pricing: pricing,
+    aboutData: aboutData,
   });
 });
 
