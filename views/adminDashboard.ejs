@@ -61,6 +61,9 @@
                 <p class="about-admin-title"><%= myData.title %></p>
                 <p class="about-admin-pasag"><%= myData.descriptionOne %></p> <br>
                 <p class="about-admin-pasag"><%= myData.descriptionTwo %></p>
+                <div class="list-about-btn">
+                    <a href="/editabout/<%=myData._id%>" class="about-edit-btn">Edit</a>
+                </div>
               <% }); %>
             <% } else { %>
               <p>No data available.</p>

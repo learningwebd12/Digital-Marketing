@@ -13,6 +13,7 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, "public")));
+
 app.use(express.urlencoded({ extended: true }));
 
 const storage = multer.diskStorage({
@@ -39,6 +40,16 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/about", async (req, res) => {
+  try {
+    const aboutData = await About.findOne({});
+    res.render("about", { aboutData: aboutData || {} });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server Error");
+  }
+});
+
 app.post("/adminDashboard/about", async (req, res) => {
   console.log(req.body); // Check what data you're receiving
   const { title, descriptionOne, descriptionTwo } = req.body;
@@ -52,6 +63,23 @@ app.post("/adminDashboard/about", async (req, res) => {
     return;
   }
   return res.redirect("/about?status=success");
+});
+
+//edit about us page
+app.get("/editabout/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const myabout = await About.findById(id);
+    if (!myabout) {
+      return res.status(404).send("About us page not found");
+    }
+    console.log("Data to render:", myabout); // Debugging: Log the data being sent
+    res.render("editAbout", { myabout });
+  } catch (error) {
+    console.error("Error fetching about data:", error);
+    res.status(500).send("Server error");
+  }
 });
 
 //services
@@ -82,17 +110,6 @@ app.get("/services", async function (req, res) {
     res.status(500).send("server error");
   }
 });
-//deleting services route
-app.delete("/services/:id", async function (req, res) {
-  const { id } = req.params;
-
-  try {
-    await Services.findByIdAndDelete(id);
-    res.status(200).send();
-  } catch (err) {
-    res.status(500).send({ err: "Error while deleting Services" });
-  }
-});
 
 //edit services
 app.get("/editservices/:id", async (req, res) => {
@@ -106,6 +123,18 @@ app.get("/editservices/:id", async (req, res) => {
     res.render("editServices", { servicesData });
   } catch (err) {
     res.status(500).send("server Error");
+  }
+});
+
+//deleting services route
+app.delete("/services/:id", async function (req, res) {
+  const { id } = req.params;
+
+  try {
+    await Services.findByIdAndDelete(id);
+    res.status(200).send();
+  } catch (err) {
+    res.status(500).send({ err: "Error while deleting Services" });
   }
 });
 

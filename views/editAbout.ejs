@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit About</title>
+</head>
+<body>
+    <form action="/about/update/<%= myabout._id %>" method="POST">
+        <label for="title">Title:</label><br>
+        <input 
+            type="text" 
+            id="title" 
+            name="title" 
+            required 
+            placeholder="Enter About Title" 
+            value="<%= myabout.title %>"><br><br>
+        
+        <label for="descriptionOne">Description One:</label><br>
+        <input 
+            type="text" 
+            id="descriptionOne" 
+            name="descriptionOne" 
+            required 
+            placeholder="Enter About Description One" 
+            value="<%= myabout.descriptionOne %>"><br><br>
+        
+        <label for="descriptionTwo">Description Two:</label><br>
+        <input 
+            type="text" 
+            id="descriptionTwo" 
+            name="descriptionTwo" 
+            required 
+            placeholder="Enter About Description Two" 
+            value="<%= myabout.descriptionTwo %>"><br><br>
+        
+        <button type="submit">Update About</button>
+    </form>
+</body>
+</html>
