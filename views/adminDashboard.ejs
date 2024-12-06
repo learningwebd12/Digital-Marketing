@@ -11,7 +11,11 @@
 />
 </head>
 <body>
-
+  <% if (successMessage.length > 0) { %>
+    <div class="alert alert-success">
+      <%= successMessage %>
+    </div>
+  <% } %>
   <div class="grid">
 
     <aside>

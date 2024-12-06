@@ -2,13 +2,14 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const session = require("express-session");
+const flash = require("connect-flash");
 const multer = require("multer");
 const About = require("./models/about.models");
 const TeamMember = require("./models/ourteam.models");
 const Services = require("./models/services.model");
 const Contact = require("./models/contact.models");
 const Pricing = require("./models/pricing.models");
-
+app.use(flash());
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
@@ -29,12 +30,18 @@ const upload = multer({ storage: storage });
 
 app.use(
   session({
-    secret: "your-secret-key", // Replace with a strong secret key
+    secret: "secret", // Replace with a strong secret key
     resave: false,
     saveUninitialized: false,
     cookie: { secure: false }, // Use `secure: true` if using HTTPS
   })
 );
+
+app.use((req, res, next) => {
+  res.locals.successMessage = req.flash("success");
+  res.locals.errorMessage = req.flash("error");
+  next();
+});
 
 app.get("/", (req, res) => {
   res.render("index");
@@ -51,7 +58,6 @@ app.get("/about", async (req, res) => {
 });
 
 app.post("/adminDashboard/about", async (req, res) => {
-  console.log(req.body); // Check what data you're receiving
   const { title, descriptionOne, descriptionTwo } = req.body;
 
   const updateAbout = await About.findOneAndUpdate(
@@ -62,7 +68,8 @@ app.post("/adminDashboard/about", async (req, res) => {
   if (updateAbout === null) {
     return;
   }
-  return res.redirect("/about?status=success");
+  req.flash("success", "About us Updated sucessfully");
+  return res.redirect("/adminDashboard");
 });
 
 //edit about us page
@@ -83,6 +90,49 @@ app.get("/editabout/:id", async (req, res) => {
 });
 
 //services
+
+app.get("/services", async function (req, res) {
+  try {
+    const aboutServices = await Services.find(); // Use find() to get all documents
+    res.render("services", { aboutServices: aboutServices || [] }); // Pass the array of services to the view
+  } catch (err) {
+    res.status(500).send("server error");
+  }
+});
+
+//post services
+app.post("/services", async (req, res) => {
+  const { name, description } = req.body;
+  try {
+    const postServices = await Services.findOneAndUpdate(
+      {},
+      { name, description },
+      { new: true, upsert: true }
+    );
+    if (postServices == null) {
+      return;
+    }
+    return res.redirect("/services?status=success");
+  } catch (error) {
+    res.status(500).send("Post Not Created");
+  }
+});
+
+//edit services
+app.get("/editservices/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const servicesData = await Services.findById(id);
+    if (!servicesData) {
+      return res.status(404).send("Service not found");
+    }
+    res.render("editServices", { servicesData });
+  } catch (err) {
+    res.status(500).send("server Error");
+  }
+});
+//update services
 app.post("/services/:id", async (req, res) => {
   const { id } = req.params;
   const { name, description } = req.body;
@@ -99,30 +149,6 @@ app.post("/services/:id", async (req, res) => {
     res.redirect("/services");
   } catch (err) {
     res.status(500).send("Server Error");
-  }
-});
-
-app.get("/services", async function (req, res) {
-  try {
-    const aboutServices = await Services.find(); // Use find() to get all documents
-    res.render("services", { aboutServices: aboutServices || [] }); // Pass the array of services to the view
-  } catch (err) {
-    res.status(500).send("server error");
-  }
-});
-
-//edit services
-app.get("/editservices/:id", async (req, res) => {
-  const { id } = req.params;
-
-  try {
-    const servicesData = await Services.findById(id);
-    if (!servicesData) {
-      return res.status(404).send("Service not found");
-    }
-    res.render("editServices", { servicesData });
-  } catch (err) {
-    res.status(500).send("server Error");
   }
 });
 
