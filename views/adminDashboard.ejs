@@ -12,7 +12,7 @@
 </head>
 <body>
   <% if (successMessage.length > 0) { %>
-    <div class="alert alert-success">
+    <div class="alert alert-success" id="flash-message">
       <%= successMessage %>
     </div>
   <% } %>
@@ -349,6 +349,15 @@ btnPricing.addEventListener("click", function() {
     sectionPricing.style.display = "block";
 });
 
+
+setTimeout(() => {
+  const flashMessage= document.getElementById("flash-message");
+  if(flashMessage){
+    flashMessage.style.transition="opacity 1s ease";
+    flashMessage.style.opacity="0";
+    setTimeout(()=>flashMessage.remove(),1000);
+  }
+}, 2000);
 
 
 

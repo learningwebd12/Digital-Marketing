@@ -103,18 +103,16 @@ app.get("/services", async function (req, res) {
 //post services
 app.post("/services", async (req, res) => {
   const { name, description } = req.body;
+  const newServices = new Services({
+    name,
+    description,
+  });
   try {
-    const postServices = await Services.findOneAndUpdate(
-      {},
-      { name, description },
-      { new: true, upsert: true }
-    );
-    if (postServices == null) {
-      return;
-    }
-    return res.redirect("/services?status=success");
-  } catch (error) {
-    res.status(500).send("Post Not Created");
+    await newServices.save();
+    req.flash("success", "Services  Updated sucessfully");
+    res.redirect("/adminDashboard");
+  } catch (err) {
+    res.status(500).send("Server Error");
   }
 });
 
