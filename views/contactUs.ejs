@@ -11,7 +11,13 @@
     
 </head>
 <body>
+    
     <%- include('./partials/header') %>
+    <% if (successMessage.length > 0) { %>
+        <div class="alert alert-success" id="flash-message">
+          <%= successMessage %>
+        </div>
+      <% } %>
     <div class="main-contact">
         <div class="main-contact-images">
             <img src="../images/Contact_Features.webp" alt="" class="contact-us-picture">
@@ -44,5 +50,16 @@
     </div>
     </div>
     <%- include('./partials/footer') %>
+
+    <script>
+        setTimeout(() => {
+  const flashMessage= document.getElementById("flash-message");
+  if(flashMessage){
+    flashMessage.style.transition="opacity 1s ease";
+    flashMessage.style.opacity="0";
+    setTimeout(()=>flashMessage.remove(),1000);
+  }
+}, 2000);
+    </script>
 </body>
 </html>

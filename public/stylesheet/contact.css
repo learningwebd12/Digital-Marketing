@@ -5,6 +5,17 @@
     height: 30vw;
     object-fit: cover;
 }
+.alert-success{
+  
+        position: absolute;
+        top: 6vw;
+        right: 1vw;
+        background-color: #d4edda;
+      color: #155724;
+        border-radius: 0.3vw;
+padding: 1vw;
+font-family: pasag;
+}
 .main-contact{
  padding: 3vw 3vw;
 }

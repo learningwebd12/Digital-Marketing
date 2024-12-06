@@ -375,7 +375,8 @@ app.post("/contact", async function (req, res) {
     });
 
     await contact.save();
-    res.status(200).send("Thank you for contacting us");
+    req.flash("success", "sucessfully send a message");
+    res.redirect("/contact");
   } catch (err) {
     console.log(err);
   }
