@@ -158,7 +158,8 @@ label{
 }
 .all-team-member{
     display: flex;
-    background-color: #ffffff;
+    background-color: #1a1a1a;
+    width: 90%;
 }
 .add-team-btn{
     padding: 1vw 3vw;
@@ -174,6 +175,7 @@ label{
     justify-content: start; 
     flex-direction: column;
     align-items:start;
+   
     
 }
 .list-team-btn{

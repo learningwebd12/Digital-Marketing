@@ -81,7 +81,7 @@ app.get("/editabout/:id", async (req, res) => {
     if (!myabout) {
       return res.status(404).send("About us page not found");
     }
-    console.log("Data to render:", myabout); // Debugging: Log the data being sent
+
     res.render("editAbout", { myabout });
   } catch (error) {
     console.error("Error fetching about data:", error);

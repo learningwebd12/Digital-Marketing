@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Team Member</title>
+    <link rel="stylesheet" href="../stylesheet/editabout.css">
+    <title>Edit Team Members</title>
     <style>
         body {
             background-color: #1a1a1a;
@@ -11,13 +12,12 @@
             font-family: Arial, sans-serif;
             padding: 20px;
         }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #333;
-            padding: 20px;
-            border-radius: 5px;
-        }
+       .edit-team{
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 3vw;
+       }
         input, textarea {
             width: 100%;
             padding: 10px;
@@ -27,14 +27,19 @@
             background-color: #222;
             color: white;
         }
-        input[type="submit"] {
-            background-color: #ffcc00;
-            border: none;
-            cursor: pointer;
-        }
-        input[type="submit"]:hover {
-            background-color: #e6b800;
-        }
+        button{
+    background-color: #ffcc00;
+    border: none;
+    cursor: pointer;
+    padding: 1vw;
+    font-family: pasag;
+    border-radius: 0.2vw;
+    font-weight: 700;
+}
+
+button:hover {
+    background-color: #e6b800;
+}
         .logout {
             float: right;
             background-color: red;
@@ -46,8 +51,9 @@
     </style>
 </head>
 <body>
+    <h2 style="text-align: center;">Edit Team Member</h2>
     <section class="edit-team">
-        <h2>Edit Team Member</h2>
+       
         <form action="/team/update/<%= member._id %>" method="post" enctype="multipart/form-data">
             <label for="name">Name:</label>
           <input type="text" id="name" name="name" value="<%= member.name %>" required><br><br>

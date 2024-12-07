@@ -1,0 +1,57 @@
+@font-face {
+    font-family: pasag;
+    src: url(../fonts/NeueMachina-Regular.otf);
+}
+@font-face {
+    font-family: heading;
+    src: url(../fonts/Unbounded-Bold-BF63e447c282748.ttf);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    height: 100%;
+    width:100%;
+}
+
+.edit-about-us{
+    background-color: #1a1a1a;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    width:80%;
+}
+label{
+    font-family: heading;
+    color: #fff;
+    font-size: 1vw;
+}
+input{
+    width: 100%;
+    padding: 1vw;
+    margin: 1vw 0;
+    border: 0.1vw solid #555;
+    border-radius: 0.3vw;
+    background-color: #222;
+    color: white;
+    font-family: pasag;
+    outline: none;
+}
+button{
+    background-color: #ffcc00;
+    border: none;
+    cursor: pointer;
+    padding: 1vw;
+    font-family: pasag;
+    border-radius: 0.2vw;
+    font-weight: 700;
+}
+button:hover {
+    background-color: #e6b800;
+}
