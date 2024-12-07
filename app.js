@@ -68,7 +68,7 @@ app.post("/adminDashboard/about", async (req, res) => {
   if (updateAbout === null) {
     return;
   }
-  req.flash("success", "About us Updated sucessfully");
+  req.flash("success", "About us Post Created sucessfully");
   return res.redirect("/adminDashboard");
 });
 
@@ -89,6 +89,26 @@ app.get("/editabout/:id", async (req, res) => {
   }
 });
 
+//after edit update about us page
+app.post("/about/update/:id", async (req, res) => {
+  const { id } = req.params;
+  const { title, descriptionOne, descriptionTwo } = req.body;
+
+  try {
+    const updateAbout = await About.findByIdAndUpdate(
+      id,
+      { title, descriptionOne, descriptionTwo },
+      { new: true }
+    );
+    if (!updateAbout) {
+      return res.status(404).send("About not fould");
+    }
+    req.flash("success", "About us Updated sucessfully");
+    res.redirect("/adminDashboard");
+  } catch (err) {
+    res.status(500).send("Server Error");
+  }
+});
 //services
 
 app.get("/services", async function (req, res) {
