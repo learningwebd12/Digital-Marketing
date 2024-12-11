@@ -5,7 +5,10 @@
 @font-face {
     font-family: pasag;
     src: url(/fonts/NeueMachina-Regular.otf);
-   
+}
+@font-face {
+    font-family: Bokis;
+    src: url(../fonts/Bokis-Regular.ttf);
 }
 *{
     margin: 0;
@@ -14,7 +17,6 @@
 }
 body{
     background-color:#161616;
-   
     background-repeat: no-repeat;
     background-size: 100%;  
     
@@ -197,7 +199,7 @@ padding: 5vw 3vw 0 3vw;
     padding: 1vw 0;
 }
 .all-project-num:nth-child(2){
-   
+  
     margin: 0 0 0 3vw;
 }
 .about-project-title{
@@ -223,16 +225,12 @@ padding: 5vw 3vw 0 3vw;
     color: #ffffff;
 }
 
-
 .about-read-more{
     color: #aaff00;
     text-decoration: none;
     font-size: 1vw;
     font-weight: 700;
 }
-
-
-
 
 .animate {
     font-size: 18vw;
@@ -301,7 +299,6 @@ color: #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
     gap: 1.5vw;
 }
 .first-box{
@@ -389,6 +386,7 @@ any-project-section */
    
     
 }
+
 .project-btn{
     padding: 1.5vw 3.5vw;
     border: none;
@@ -400,4 +398,75 @@ any-project-section */
     z-index: 1;
     border-radius: 0.2vw;
 
+}
+
+
+@media only screen and (max-width:480px){
+    .sub-main{
+        flex-direction: column;
+        height: auto;
+    }
+    .left-part{
+        width: 100%;
+        padding: 3vw;
+    }
+    .home-h1{
+        font-size: 22vw;
+        line-height: 20vw;
+        font-family: Bokis;
+    }
+    .home-pasag{
+        font-size: 5vw;
+        font-family: pasag;
+        line-height: 6vw;
+    }
+    .first-btn{
+        font-size: 4vw;
+        padding:5vw 6vw;
+        border-radius: 1vw;
+        
+    }
+    .center-part{
+
+        width: 100%;
+    }
+    .right-parts{
+        width: 100%;
+        padding: 3vw;
+    }
+    .top-p{
+        font-size: 5vw;
+        font-family: pasag;
+    }
+    .ri-arrow-right-up-line{
+        font-size: 6vw;
+    }
+    .center{
+        padding: 1vw 0;
+    }
+    .center-p{
+        font-size: 3.5vw;
+    }
+    .end{
+        padding: 1vw 0;
+    }
+    .end-p{
+        font-size: 3.5vw;
+    }
+    .about-title-h1{
+        width: 100%;
+        padding: 1vw;
+        font-size: 7vw;
+        padding: 3vw;
+    }
+    .about-project-title{
+        font-size: 10vw;
+    }
+    .about-project-pasag{
+        font-size: 5vw;
+        font-family: pasag;
+    }
+    .four-box{
+
+    }
 }
