@@ -246,7 +246,7 @@ padding: 5vw 3vw 0 3vw;
 
 .Methodology{
     width: 100%;
-   height: 100vh;
+   height: auto;
    padding: 3vw 3vw;
 }
 .two-methodology{
@@ -453,6 +453,25 @@ any-project-section */
     .end-p{
         font-size: 3.5vw;
     }
+    .two-box-about{
+        flex-direction: column;
+    }
+    .main-about-title{
+        justify-content: space-around;
+        width: 100%;
+    }
+    .about-description{
+        width: 100%;
+    }
+    .about-desciption-txt{
+        width: 100%;
+        font-family: pasag;
+        font-size: 4.5vw;
+        line-height: 6vw;
+    }
+    .about-read-more{
+        font-size: 3vw;
+    }
     .about-title-h1{
         width: 100%;
         padding: 1vw;
@@ -466,7 +485,73 @@ any-project-section */
         font-size: 5vw;
         font-family: pasag;
     }
-    .four-box{
 
+    .two-methodology{
+        flex-direction: column;
+    }
+.small-txt{
+    width: 100%;
+}
+.inner-pasag-p{
+    font-size: 4.5vw;
+    padding: 3vw;
+    border-radius: 2vw;
+    border: 0.2vw solid #545454;
+    font-family: heading;
+}
+.ri-arrow-right-line{
+    font-size: 10vw;
+    border-radius: 2vw;
+    transform: rotate(0);
+}
+.inner-h2{
+    font-size: 4.5vw;
+
+}
+.side-txt{
+    width: 100%;
+    padding: 4vw 0;
+}
+
+    .four-box{
+    flex-wrap: wrap;
+    height: auto;
+    }
+
+    .first-box{
+        width: 100%;
+        padding: 6vw 2vw;
+    }
+    figcaption{
+        font-size: 6vw;
+    }
+    .all-inner-list{
+        font-size: 4.5vw;
+        margin: 2vw 0;
+        font-weight: 300;
+        font-family: pasag;
+    }
+    .ri-presentation-line{
+        font-size: 20vw;
+    }
+    .any-project-section{
+        height: auto;
+        padding:2vw;
+    }
+    .images-and-text{
+        height: auto;
+        width: 100%;
+        padding: 10vw 2vw;
+    }
+    .any-project-h1{
+        font-size: 10vw;
+        width: 100%;
+    }
+    .project-btn{
+        font-size: 4vw;
+        padding:5vw 6vw;
+        border-radius: 1vw; 
+        font-family: pasag;
+        margin-top: 5vw;
     }
 }
