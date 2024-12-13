@@ -26,6 +26,9 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 1vw 3vw;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
     
      
 }
@@ -399,7 +402,65 @@ any-project-section */
     border-radius: 0.2vw;
 
 }
-
+.ri-menu-4-line{
+    display: none;
+}
+@media only screen and (max-width:720px){
+    header{
+        background-color: #111111;
+       
+    }
+    nav , .header-anchor{
+        display: none;
+    }
+    .more{
+        display: block;
+        background-color: #111111;
+        position: fixed;
+        flex-direction: column;
+        top: 0;
+        right: 0;
+        height: 40%;
+        width: 100%;
+        padding: 3vw;
+        margin: 14vw 0 0 0;
+    }
+    .more a{
+        display: flex;
+        font-size: 4vw;
+        margin: 2vw 0;
+       
+    }
+    .logo{
+        font-size: 4vw;
+    }
+    
+    .next-more{
+        display: block;
+    }
+    .ri-menu-4-line{
+        display: block;
+        color: #ffffff;
+        cursor: pointer;
+        font-size: 10vw;
+        background-color: #00000080;
+        padding: 1vw;
+        border-radius: 1vw;
+    
+    }
+    .logo-images{
+        margin-left: 3vw;
+    }
+    .main-logo{
+        height: 10vw;
+    
+    }
+    .header-btn{
+        font-size: 4vw;
+        padding:3vw 6vw;
+        border-radius: 1vw;
+    }
+}
 
 @media only screen and (max-width:480px){
     .sub-main{

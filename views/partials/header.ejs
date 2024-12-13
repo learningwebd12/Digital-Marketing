@@ -11,7 +11,7 @@
         <div class="logo-images">
             <a href="/"><img src="/images/Logo 2.jpg" alt="" class="main-logo"></a>
         </div>
-        <nav>
+        <nav class="nav-bar">
             <a href="/">Home</a>
             <a href="/about">About</a>
             <a href="/services">Services</a>
@@ -19,7 +19,20 @@
             <a href="/team">Our Team</a>
             <a href="/price">Pricing</a>
         </nav>
-        <a href="/contact"><button class="header-btn" >Contact us</button></a>
+        <a href="/contact" class="header-anchor"><button class="header-btn" >Contact us</button></a>
+        <i class="ri-menu-4-line"></i>
     </header>
+
+    <script>
+        const anchor=document.getElementsByClassName("header-anchor")[0];
+        const nav=document.getElementsByClassName("nav-bar")[0];
+        const menuIcon= document.getElementsByClassName("ri-menu-4-line")[0];
+        
+        menuIcon.addEventListener("click", function(){
+            nav.classList.toggle("more");
+            anchor.classList.toggle("next-more");
+        });
+        
+    </script>
 </body>
 </html>

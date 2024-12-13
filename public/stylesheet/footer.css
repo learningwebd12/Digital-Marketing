@@ -84,6 +84,7 @@ h3{
 }
 
 
+
 @media only screen and (max-width:480px){
     .all-footer-box{
         grid-template-columns: 1fr;
