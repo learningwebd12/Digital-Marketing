@@ -82,3 +82,67 @@ h3{
     color: #ffffff;
     font-size: 2vw;
 }
+
+
+@media only screen and (max-width:480px){
+    .all-footer-box{
+        grid-template-columns: 1fr;
+        
+    }
+    .one-footer-box{
+        padding: 1vw;
+    }
+    .one-footer-box h3{
+        font-size: 6vw;
+    }
+    .one-footer-box h4{
+        font-size: 4vw;
+    }
+    .contact-us-footer{
+        font-size: 5vw;
+        padding:5vw 6vw;
+        border-radius: 1vw;
+        border: none;
+        
+    }
+    .location p{
+        font-size: 4vw;
+        margin: 1vw 0;
+    }
+    .one-footer-box p{
+        font-size: 3vw;
+    }
+    .two-footer-info{
+        padding: 1vw;
+    }
+    .two-footer-info p{
+        font-size: 2vw;
+    }
+    .two-footer-info{
+        width: 100%;
+        flex-direction: column-reverse;
+        align-items: start;
+    }
+    .email-logo{
+        margin: 2vw 0;
+        width: 100%;
+        height: 15vw;
+        border-radius: 1vw;
+    }
+    .two-footer-info{
+        text-align: start;
+    }
+    .two-footer-info p{
+        font-size: 3vw;
+        color: #4d4c4c;
+    }
+    .two-footer-info input{
+        width: 100%;
+        height: 12vw;
+        font-size: 4vw;
+    }
+    .ri-send-plane-fill{
+        font-size: 8vw;
+        margin-right: 2vw;
+    }
+}
