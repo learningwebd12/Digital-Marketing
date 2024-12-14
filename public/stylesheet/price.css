@@ -91,3 +91,43 @@ clip-path: polygon(80% 0, 100% 20%, 100% 100%, 0 100%, 0 0);
     font-weight: 700;
 }
 
+@media only screen and (max-width:720px){
+.main-pricing-title{
+    font-size: 6vw;
+    top: 18vw;
+    left: 40vw;
+}
+.main-pricing-div{
+    flex-direction: column;
+}
+.pricing-plan{
+    width: 100%;
+    margin: 4vw 0;
+}
+.pricing-plan h3{
+    font-size: 5vw;
+}
+.pricing-plan p{
+    font-size: 2.5vw;
+    margin: 2vw 0;
+}
+.features-list{
+    font-size: 2.5vw;
+    padding: 2vw 1vw;
+}
+.price-btn{
+    font-size: 4vw;
+    padding:5vw 6vw;
+    border-radius: 1vw;
+}
+.price-money p{
+font-size: 3vw;
+}
+.price-money h2{
+    font-size: 5vw;
+}
+.per-months{
+    color: gray;
+    margin-left: 1vw;
+}
+}
