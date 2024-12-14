@@ -130,4 +130,16 @@ font-size: 3vw;
     color: gray;
     margin-left: 1vw;
 }
+.price-heading-text{
+    padding: 1vw;
+}
+.price-heading-h1{
+    font-size: 5vw;
+}
+.price-pasag-p{
+    font-size:3vw ;
+    width: 100%;
+    margin: 1vw 0;
+    padding: 1vw;
+}
 }
