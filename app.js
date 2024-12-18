@@ -30,10 +30,10 @@ const upload = multer({ storage: storage });
 
 app.use(
   session({
-    secret: "secret", // Replace with a strong secret key
+    secret: "secret",
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false }, // Use `secure: true` if using HTTPS
+    cookie: { secure: false },
   })
 );
 

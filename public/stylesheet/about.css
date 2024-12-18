@@ -63,3 +63,37 @@ svg{
     line-height: 1.7vw;
     font-family: poppins;
 }
+
+@media only screen and (max-width:720px){
+    .main-about-title{
+        font-size: 4vw;left: 35vw;
+    }
+    .main-about-images{
+        padding: 3vw;
+    }
+    .first-about-photo{
+        height: 60vw;
+    }
+    .main-heading-text{
+        font-size: 4vw;
+    }
+    .about-article{
+        flex-direction: column;
+    }
+    .about-article svg{
+        height: 30vw;
+        width: 100%;
+    }
+    .h1-about{
+        font-size: 6vw;
+        font-family: heading;
+    }
+    .about-article .full-pasag{
+       font-size: 3.5vw;
+       width: 100%;
+       line-height: normal;
+       padding: 3vw;
+       text-align: start;
+       margin: 3vw 0;
+    }
+}
