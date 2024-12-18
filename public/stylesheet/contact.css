@@ -110,3 +110,49 @@ form button{
     margin: 1vw 0;
 }
 
+
+@media only screen and (max-width:720px){
+   .two-box-contact{
+    flex-direction: column;
+   } 
+   .two-box-contact h1{
+    font-size: 6vw;
+    font-family: heading;
+    width: 100%;
+   }
+   .two-box-contact p{
+    width: 100%;
+    font-size: 3vw;
+   }
+   .two-form-box{
+    flex-direction: column-reverse;
+   }
+   .right-contact-info{
+    width: 100%;
+   }
+   .contact-h4{
+    font-size: 3vw;
+   }
+   .all-contact-pasag{
+    font-size: 2.5vw;
+    color: #838383;
+   }
+   label{
+    font-size: 2.5vw;
+   }
+   form{
+    width: 100%;
+   }
+   .input-text{
+    padding: 3vw;
+   }
+   form button{
+    font-size: 4vw;
+    padding:5vw 6vw;
+    border-radius: 1vw;
+    width: 50%;
+   }
+   textarea{
+    height: 20vw;
+   }
+}
