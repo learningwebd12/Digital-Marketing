@@ -109,3 +109,23 @@
     font-weight: 300;
     text-align: center;
 }
+@media only screen and (max-width:720px){
+    .our-team-main-images{
+        height: 50vw;
+    }
+.ourteam{
+    font-size: 6vw;
+    font-family: heading;
+    
+}
+.meet-our-team-pasag{
+    font-size: 3.5vw;
+    padding: 3vw;
+    background-color:#00000058;
+}
+.all-team-text{
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
+}

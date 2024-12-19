@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
 .first-about-photo{
     width: 100%;
     height: 30vw;
@@ -65,8 +71,12 @@ svg{
 }
 
 @media only screen and (max-width:720px){
+    .about-banner-images{
+        width: 100%;
+    }
     .main-about-title{
-        font-size: 4vw;left: 35vw;
+        font-size: 4vw;
+        left: 35vw;
     }
     .main-about-images{
         padding: 3vw;
@@ -89,7 +99,7 @@ svg{
         font-family: heading;
     }
     .about-article .full-pasag{
-       font-size: 3.5vw;
+       font-size: 4.5vw;
        width: 100%;
        line-height: normal;
        padding: 3vw;
