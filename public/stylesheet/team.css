@@ -128,4 +128,32 @@
     left: 0;
     bottom: 0;
 }
+.meet-team-h1{
+    font-family: heading;
+}
+.all-team-located{
+    flex-direction: column;
+    justify-items: start;
+    align-items: start;
+}
+.main-content{
+    width: 100%;
+}
+.profile-pic{
+    height:90vw ;
+    width: 85%;
+}
+.member-name{
+    font-size: 6vw;
+}
+.position{
+    font-size: 4vw;
+}
+.social-link{
+    font-size: 4vw;
+    padding: 2vw 3vw;
+}
+.name-and-info{
+    width: 85%;
+}
 }
