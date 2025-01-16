@@ -18,21 +18,29 @@
             <div class="logo">Marketing Mandu</div>
             <a href="/team">Our Team</a>
             <a href="/price">Pricing</a>
+            
+            <% if (userLoggedIn) { %>
+                <!-- If user is logged in, show a logout link -->
+                <a href="/logout">Logout</a>
+            <% } else { %>
+                <!-- If user is not logged in, show login and register links -->
+                <a href="/userlogin">Login</a>
+                <a href="/register">Register</a>
+            <% } %>
         </nav>
-        <a href="/contact" class="header-anchor"><button class="header-btn" >Contact us</button></a>
+        <a href="/contact" class="header-anchor"><button class="header-btn">Contact us</button></a>
         <i class="ri-menu-4-line"></i>
     </header>
 
     <script>
-        const anchor=document.getElementsByClassName("header-anchor")[0];
-        const nav=document.getElementsByClassName("nav-bar")[0];
-        const menuIcon= document.getElementsByClassName("ri-menu-4-line")[0];
+        const anchor = document.getElementsByClassName("header-anchor")[0];
+        const nav = document.getElementsByClassName("nav-bar")[0];
+        const menuIcon = document.getElementsByClassName("ri-menu-4-line")[0];
         
-        menuIcon.addEventListener("click", function(){
+        menuIcon.addEventListener("click", function() {
             nav.classList.toggle("more");
             anchor.classList.toggle("next-more");
         });
-        
     </script>
 </body>
 </html>

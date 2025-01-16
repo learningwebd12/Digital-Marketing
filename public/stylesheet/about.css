@@ -1,3 +1,7 @@
+@font-face {
+    font-family: ga;
+    src: url(../fonts/Bokis-Regular.ttf);
+}
 *{
     margin: 0;
     padding:0;

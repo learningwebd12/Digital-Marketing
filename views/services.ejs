@@ -7,38 +7,44 @@
     <link rel="stylesheet" href="../stylesheet/services.css">
 </head>
 <body>
-    <%- include('./partials/header') %>
-    <div class="services-images">
-      <h1 class="our-services-text">
-        Our Services
-      </h1>
-      <img src="../images/services.png" alt="" class="main-picture-services">
+  <%- include('./partials/header') %>
+
+  <div class="services-images">
+    <h1 class="our-services-text">Our Services</h1>
+    <img src="../images/services.png" alt="" class="main-picture-services">
+  </div>
+  
+  <section class="main-sercices-section">
+    <div class="main-services-tex">
+      <h1 class="services-h1">We Provide Different Services</h1>
+      <p class="services-pasag">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ullam odit consequuntur consequatur itaque, ducimus eligendi illum iusto consectetur obcaecati?</p>
     </div>
-    <section class="main-sercices-section">
-      
-      <div class="main-services-tex">
-        <h1 class="services-h1">We Provide Different Services</h1>
-        <p class="services-pasag">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ullam odit consequuntur consequatur itaque, ducimus eligendi illum iusto consectetur obcaecati?</p>
-            </div>
-            <div class="all-services">
-              <% if (aboutServices && aboutServices.length > 0) { %>
-                <% aboutServices.forEach((data) => { %>
-                  <div class="main">
-                    <h2><%= data.name %></h2>
-                    <p><%= data.description %></p>
-                  </div>
-                <% }) %>
-              <% } %>
-            </div>
-            <div class="lets-talk">
-              <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clip-path="url(#clip0_231_793)"> <path fill-rule="evenodd" clip-rule="evenodd" d="M50 0H200V50V150L150 200L150 50H0L50 0ZM0 165.067V100L65.067 100L0 165.067ZM100 200H35.7777L100 135.778L100 200Z" fill="url(#paint0_linear_231_793)"/> </g> <defs> <linearGradient id="paint0_linear_231_793" x1="177" y1="-9.23648e-06" x2="39.5" y2="152.5" gradientUnits="userSpaceOnUse"> <stop stop-color="#B0B9FF"/> <stop offset="1" stop-color="#E7E9FF"/> </linearGradient> <clipPath id="clip0_231_793"> <rect width="200" height="200" fill="white"/> </clipPath> </defs> </svg>
-              <h1 class="lets-talk-h1">Let's Talk</h1>
-               <a href="/contact" class="contact-us-btn">Contact Us</a>
-            </div>
-    </section>
     
-    
-    
-    <%- include('./partials/footer') %>
+    <div class="all-services">
+      <% if (aboutServices && aboutServices.length > 0) { %>
+        <% aboutServices.forEach((data) => { %>
+          <div class="main">
+            <h2><%= data.name %></h2>
+            <p><%= data.description %></p>
+            <!-- Check if the user is logged in before showing the booking link -->
+            <% if (userLoggedIn) { %>
+              <a href="/services/booking/<%= data._id %>" class="book-service-btn">Book Now</a>
+            <% } else { %>
+              <a href="/userlogin" class="book-service-btn">Login to Book</a>
+            <% } %>
+          </div>
+        <% }) %>
+      <% } %>
+    </div>
+  
+    <div class="lets-talk">
+      <!-- SVG and other content -->
+      <h1 class="lets-talk-h1">Let's Talk</h1>
+      <a href="/contact" class="contact-us-btn">Contact Us</a>
+    </div>
+  </section>
+  
+  <%- include('./partials/footer') %>
+  
 </body>
 </html>

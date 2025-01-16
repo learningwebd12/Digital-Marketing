@@ -4,11 +4,13 @@ const path = require("path");
 const session = require("express-session");
 const flash = require("connect-flash");
 const multer = require("multer");
+const bcrypt = require("bcryptjs");
 const About = require("./models/about.models");
 const TeamMember = require("./models/ourteam.models");
 const Services = require("./models/services.model");
 const Contact = require("./models/contact.models");
 const Pricing = require("./models/pricing.models");
+const User = require("./models/User");
 app.use(flash());
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
@@ -44,7 +46,8 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  res.render("index");
+  // Pass the userLoggedIn value to the view
+  res.render("index", { userLoggedIn: req.session.isAuthenticated });
 });
 
 app.get("/about", async (req, res) => {
@@ -111,12 +114,25 @@ app.post("/about/update/:id", async (req, res) => {
 });
 //services
 
+// app.get("/services", async function (req, res) {
+//   try {
+//     const aboutServices = await Services.find(); // Use find() to get all documents
+//     res.render("services", { aboutServices: aboutServices || [] }); // Pass the array of services to the view
+//   } catch (err) {
+//     res.status(500).send("server error");
+//   }
+// });
 app.get("/services", async function (req, res) {
   try {
-    const aboutServices = await Services.find(); // Use find() to get all documents
-    res.render("services", { aboutServices: aboutServices || [] }); // Pass the array of services to the view
+    const aboutServices = await Services.find(); // Get all services
+    const userLoggedIn = req.session.isAuthenticated || false; // Check if the user is logged in
+
+    res.render("services", {
+      aboutServices: aboutServices || [],
+      userLoggedIn: userLoggedIn,
+    }); // Pass the services and login status to the view
   } catch (err) {
-    res.status(500).send("server error");
+    res.status(500).send("Server error");
   }
 });
 
@@ -436,6 +452,85 @@ app.post("/verifyLogin", (req, res) => {
   } else {
     res.status(401).send("Invalid Email or OTP");
   }
+});
+//user register
+app.get("/register", (req, res) => {
+  res.render("register"); // Render the registration page
+});
+
+// User Registration Route (POST)
+app.post("/register", async (req, res) => {
+  const { fullname, email, password, confirmPassword } = req.body;
+
+  if (password !== confirmPassword) {
+    req.flash("error", "Passwords do not match!");
+    return res.redirect("/register");
+  }
+
+  try {
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      req.flash("error", "Email already in use");
+      return res.redirect("/register");
+    }
+
+    const newUser = new User({
+      fullname,
+      email,
+      password,
+    });
+    await newUser.save();
+    req.flash("success", "Registration successful! Please login.");
+    res.redirect("/login"); // Redirect to login after successful registration
+  } catch (error) {
+    console.error(error);
+    req.flash("error", "Error during registration");
+    res.redirect("/register");
+  }
+});
+
+// User Login Route (GET)
+app.get("/userlogin", (req, res) => {
+  res.render("userlogin"); // Render the login page
+});
+
+// User Login Route (POST)
+app.post("/userlogin", async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const user = await User.findOne({ email });
+    if (!user) {
+      req.flash("error", "Invalid email or password");
+      return res.redirect("/userlogin");
+    }
+
+    const isMatch = await user.comparePassword(password);
+    if (!isMatch) {
+      req.flash("error", "Invalid email or password");
+      return res.redirect("/userlogin");
+    }
+
+    req.session.isAuthenticated = true; // Set session as authenticated
+    req.session.user = user;
+    req.flash("success", "Login successful!");
+    res.redirect("/"); // Redirect to dashboard after login
+  } catch (err) {
+    console.error(err);
+    req.flash("error", "Error during login");
+    res.redirect("/userlogin");
+  }
+});
+// booking services render the booking form
+
+// User Logout Route
+app.get("/logout", (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      return res.status(500).send("Error logging out");
+    }
+    res.redirect("/userlogin");
+  });
 });
 
 app.get("/logout", (req, res) => {
